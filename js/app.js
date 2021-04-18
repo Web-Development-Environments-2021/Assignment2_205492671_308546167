@@ -9,7 +9,8 @@ var interval;
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
-	Start();
+	
+	//Start();
 });
 
 function Start() {
@@ -146,7 +147,7 @@ function UpdatePosition() {
 	}
 	if (x == 3) {
 		if (shape.i > 0 && board[shape.i - 1][shape.j] != 4) {
-			shape.i--;
+			shape.i--; 
 		}
 	}
 	if (x == 4) {

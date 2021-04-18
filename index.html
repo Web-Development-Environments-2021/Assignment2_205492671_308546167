@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<script src="./jquery-3.4.1.slim.min.js"></script>
-		<script type="text/javascript" src="./app.js"></script>
+		<script src="./js/jquery-3.4.1.slim.min.js"></script>
+		<script src="./js/welcome.js"></script>
+		<script src="./js/register.js"></script>
+		<script src="./js/login.js"></script>
+		<script src="./js/about.js"></script>
+		<script type="text/javascript" src="./js/app.js"></script>
+		<link rel="stylesheet" type="text/css" href="./style/stylesheet.css" />
 	</head>
 
 	<body>
-		<div id="score">
+		<header>
+			<h1>Apple Pacman</h1>
+			<h3>Liad Oz & Naor Suban</h3>
+		</header>
+		<div id="menu">
+			<ul>
+				<li id="welcome_menu"><a>Welcome</a></li>
+				<li ><a>Register</a></li>
+				<li ><a>Login</a></li>
+				<li id="about_menu"><a>About</a></li>
+			</ul>
+		</div>
+		<br>
+		<div id="welcome">
+			<button id="register_button"> Register </button>
+			<br>
+			<button id="login_button"> Login </button>
+		</div> 
+		<div id="register"><p>bedika</p></div>
+		<div id="login">login bedika</div>
+		<div id="about">about bedia</div>
+
+		<div id="score" >
 			<label for="lblScore">SCORE:</label>
 			<input id="lblScore" type="text" />
 		</div>
-		<div id="time">
+		<div id="time" >
 			<label for="lblTime">TIME:</label>
 			<input id="lblTime" type="text" />
 		</div>
 		<div id="game">
 			<canvas id="canvas" height="600" width="600"></canvas>
 		</div>
+		<footer>
+			<h6>2021 ©   Liad Oz & Naor Suban the KILLERS</h6>
+		</footer>
 	</body>
 </html>
