@@ -40,31 +40,31 @@
 				<h2>Register</h2>
 				<form id="registerForm">
 				  <div class="user-box">
-					<input type="text" name="Username" id="Username">
+					<input type="text" name="Username" id="Username" required>
 					<label>Username</label>
 				  </div>
 				  <div class="user-box">
-					<input type="password" name="Password">
+					<input type="password" name="Password" required>
 					<label>Password</label>
 				  </div>
 				  <div class="user-box">
-					<input type="text" name="Fullname">
+					<input type="text" name="Fullname" required>
 					<label>Full name</label>
 				  </div>
 				  <div class="user-box">
-					<input type="email" name="Email">
+					<input type="email" name="Email" required> 
 					<label>Email</label>
 				  </div>
 				  <div class="user-box">
-					<input type="date" name="DateOfBirth">
+					<input type="date" name="DateOfBirth" required>
 					<label>Date of Birth</label>
 				  </div>
-				  <a><input id="subRegister" type="submit"  value="Register">
+				  <a id="register_btn_area">
+					<span></span>
+					<span></span>  
 					<span></span>
 					<span></span>
-					<span></span>
-					<span></span>
-				</input>
+					<input id="subRegister" type="submit"  value="Done"></input>
 				</a>
 				</form>
 			</div>
@@ -122,6 +122,8 @@
 
 		</div>
 		<footer>
+			<br>
+			<br>
 			<h6>2021 ©   Liad Oz & Naor Suban the KILLERS</h6>
 		</footer>
 	</body>
