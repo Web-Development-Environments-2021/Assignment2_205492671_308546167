@@ -1,16 +1,21 @@
 $(document).ready(function(){
-    showMeOnly();
+    showWelcomeScreen();
     $("#welcome_menu").click(function(){
-        showMeOnly();
-    });  
+        showWelcomeScreen();
+    }); 
 });
 
 
-function showMeOnly(){
+function showWelcomeScreen(){
     $("#welcome").show();
     $("#register").hide();
     $("#login").hide();
-    $("#score").hide();
-    $("#time").hide();
-}
+  
+    $("#gameScreen").hide();
+   }
 
+
+
+
+
+   

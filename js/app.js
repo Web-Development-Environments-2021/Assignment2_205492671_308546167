@@ -13,6 +13,15 @@ $(document).ready(function() {
 	//Start();
 });
 
+
+function showGameScreen(){
+	$("#gameScreen").show();
+    $("#login").hide();
+    $("#welcome").hide();
+    $("#register").hide();
+	Start();
+}
+
 function Start() {
 	board = new Array();
 	score = 0;

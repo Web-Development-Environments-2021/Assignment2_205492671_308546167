@@ -35,3 +35,11 @@ ul {
   li p:hover {
     background-color: #111;
   }
+
+ footer{
+   position: fixed;
+   left: 0px;
+   bottom: 0px;
+   width: 100%;
+   text-align: center;
+ }

@@ -1,6 +1,14 @@
-$(document).ready(function(){
-    $("#about").hide();
-    $("#about_menu").click(function(){
-        $("#about").show();
-    })
+$(document).ready(function ()
+{
+
+   $("#about_menu").click(function ()
+   {
+      $("#about_dialog").show();
+   });
+
+   $("#aboutBtnClose").click(function ()
+   {
+      $("#about_dialog").hide();
+   });
+
 });
