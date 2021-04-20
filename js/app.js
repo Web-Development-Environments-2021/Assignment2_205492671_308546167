@@ -9,10 +9,15 @@ var interval;
 var boardRowLength = 20;
 var boardColLength = 20;
 var scale = 80;
+var direction = 0;
+var eyeLocx;
+var eyeLocy;
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
 	scale = (canvas.width/(boardColLength));
+	eyeLocx = scale/12;
+	eyeLocy = -3*scale/12
 	Start();
 });
 
@@ -25,57 +30,6 @@ function showGameScreen(){
 	Start();
 }
 
-function findOpposite(currWall){
-	let wallRow = currWall.row;
-	let wallCol = currWall.col;
-	for(let j=-1; j<=1; j++)
-	{
-		for (let k=-1;k<=1;k++)
-		{
-			if ((j == 0 && k == 0) || (k != 0 && j != 0)) // only horizontal or vertical
-				continue;
-			else if (0<=wallRow+j && wallRow+j<boardRowLength && 0<=wallCol+k && wallCol+k<boardColLength && board[wallRow+j][wallCol+k] == 0) // in Bounds and is a wall
-				if (0<=wallRow-j && wallRow-j<boardRowLength && 0<=wallCol-k && wallCol-k<boardColLength)
-					return ({"row": wallRow-j, "col": wallCol-k});
-		}
-	}
-	return null;
-
-}
-
-function buildWalls(){
-	// fill board with 4
-	for (let index1 = 0; index1 < boardRowLength; index1++) {
-		board[index1] = new Array();
-		for (let index2 = 0; index2 < boardColLength; index2++) {
-			board[index1][index2] = 4;
-		}
-	}
-	let randomNum = Math.random();
-	let starti = Math.floor(Math.random() * (boardRowLength-1) + 1);
-	let startj = Math.floor(Math.random() * (boardColLength-1) + 1);
-	board[starti][startj] = 0;
-	let walls = [];
-	addWallsToArray(starti, startj, walls);
-
-	while(walls.length){
-		const random = Math.floor(Math.random() * walls.length);
-		const currWall = walls.splice(random, 1)[0];
-		if (board[currWall.row][currWall.col] == 4) {
-			opposite = findOpposite(currWall);
-			// if opposite is a vertice(0), there is already a path to it. if opposite is null, vertice is at the edge.
-			if (opposite != null && board[opposite.row][opposite.col] == 4) {
-				// 'break' both walls (opposite and path to it) and add walls of opposite to stack
-				board[currWall.row][currWall.col] = 0;
-				board[opposite.row][opposite.col] = 0;
-				addWallsToArray(opposite.row, opposite.col, walls);
-			}
-		}
-	}
-
-
-
-}
 
 function Start() {
 	board = new Array();
@@ -100,10 +54,10 @@ function Start() {
 			// 	board[i][j] = 4;
 			// } else {
 				var randomNum = Math.random();
-				if (randomNum <= (1.0 * food_remain) / cnt) {
+				if ((randomNum <= (1.0 * food_remain) / cnt) && board[i][j] != 4) {
 					food_remain--;
 					board[i][j] = 1;
-				} else if (randomNum < (1.0 * (pacman_remain + food_remain)) / cnt) {
+				} else if ((randomNum < (1.0 * (pacman_remain + food_remain)) / cnt) && board[i][j] != 4 && pacman_remain != 0) {
 					shape.i = i;
 					shape.j = j;
 					pacman_remain--;
@@ -150,16 +104,40 @@ function findRandomEmptyCell(board) {
 }
 
 function GetKeyPressed() {
+	// up
 	if (keysDown[38]) {
+		// twist packman
+		direction = 3
+		// twist packman
+		eyeLocx = 3*scale/12;
+		eyeLocy = -1*scale/12;
 		return 1;
 	}
+	// down
 	if (keysDown[40]) {
+		// twist packman
+		direction = 1
+		// twist eyes
+		eyeLocx = 3*scale/12;
+		eyeLocy = scale/12;
 		return 2;
 	}
+	// left
 	if (keysDown[37]) {
+		// twist packman
+		direction = 2;
+		// twist eyes
+		eyeLocx = -1*scale/12;
+		eyeLocy = -3*scale/12;
 		return 3;
 	}
+	//right
 	if (keysDown[39]) {
+		// twist packman
+		direction = 0;	
+		// twist eyes	
+		eyeLocx = scale/12;
+		eyeLocy = -3*scale/12;
 		return 4;
 	}
 }
@@ -175,12 +153,12 @@ function Draw() {
 			center.y = j * scale + scale/2;
 			if (board[i][j] == 2) { //draw pacman
 				context.beginPath();
-				context.arc(center.x, center.y, scale/2, 0.15 * Math.PI, 1.85 * Math.PI); // half circle.. packman
+				context.arc(center.x, center.y, scale/2, (0.15+0.5*direction) * Math.PI, (1.85+0.5*direction) * Math.PI); // half circle.. packman
 				context.lineTo(center.x, center.y);
 				context.fillStyle = pac_color; //color
 				context.fill();
 				context.beginPath();
-				context.arc(center.x + 5, center.y - 15, 5, 0, 2 * Math.PI); // circle.. eye of packman
+				context.arc(center.x + eyeLocx, center.y + eyeLocy, 5, 0, 2 * Math.PI); // circle.. eye of packman
 				context.fillStyle = "black"; //color
 				context.fill();
 			} else if (board[i][j] == 1) { // food
@@ -235,6 +213,55 @@ function UpdatePosition() {
 		window.alert("Game completed");
 	} else {
 		Draw();
+	}
+}
+
+function findOpposite(currWall){
+	let wallRow = currWall.row;
+	let wallCol = currWall.col;
+	for(let j=-1; j<=1; j++)
+	{
+		for (let k=-1;k<=1;k++)
+		{
+			if ((j == 0 && k == 0) || (k != 0 && j != 0)) // only horizontal or vertical
+				continue;
+			else if (0<=wallRow+j && wallRow+j<boardRowLength && 0<=wallCol+k && wallCol+k<boardColLength && board[wallRow+j][wallCol+k] == 0) // in Bounds and is a wall
+				if (0<=wallRow-j && wallRow-j<boardRowLength && 0<=wallCol-k && wallCol-k<boardColLength)
+					return ({"row": wallRow-j, "col": wallCol-k});
+		}
+	}
+	return null;
+
+}
+
+function buildWalls(){
+	// fill board with 4
+	for (let index1 = 0; index1 < boardRowLength; index1++) {
+		board[index1] = new Array();
+		for (let index2 = 0; index2 < boardColLength; index2++) {
+			board[index1][index2] = 4;
+		}
+	}
+	let randomNum = Math.random();
+	let starti = Math.floor(Math.random() * (boardRowLength-1) + 1);
+	let startj = Math.floor(Math.random() * (boardColLength-1) + 1);
+	board[starti][startj] = 0;
+	let walls = [];
+	addWallsToArray(starti, startj, walls);
+
+	while(walls.length){
+		const random = Math.floor(Math.random() * walls.length);
+		const currWall = walls.splice(random, 1)[0];
+		if (board[currWall.row][currWall.col] == 4) {
+			opposite = findOpposite(currWall);
+			// if opposite is a vertice(0), there is already a path to it. if opposite is null, vertice is at the edge.
+			if (opposite != null && board[opposite.row][opposite.col] == 4) {
+				// 'break' both walls (opposite and path to it) and add walls of opposite to stack
+				board[currWall.row][currWall.col] = 0;
+				board[opposite.row][opposite.col] = 0;
+				addWallsToArray(opposite.row, opposite.col, walls);
+			}
+		}
 	}
 }
 
