@@ -8,3 +8,4 @@
  - clear forms
  - footer - the dark side of the footer.
  - game shouldn't surf into the part of the footer. 
+ - double key pressed cases in setting like "ArrowUp7"
