@@ -12,12 +12,14 @@ var scale = 80;
 var direction = 0;
 var eyeLocx;
 var eyeLocy;
+var eyeRadius
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
 	scale = (canvas.width/(boardColLength));
 	eyeLocx = scale/12;
-	eyeLocy = -3*scale/12
+	eyeLocy = -3*scale/12;
+	eyeRadius = scale/12;
 	Start();
 });
 
@@ -159,7 +161,7 @@ function Draw() {
 				context.fillStyle = pac_color; //color
 				context.fill();
 				context.beginPath();
-				context.arc(center.x + eyeLocx, center.y + eyeLocy, 5, 0, 2 * Math.PI); // circle.. eye of packman
+				context.arc(center.x + eyeLocx, center.y + eyeLocy, eyeRadius, 0, 2 * Math.PI); // circle.. eye of packman
 				context.fillStyle = "black"; //color
 				context.fill();
 			} else if (board[i][j] == 1) { // food
