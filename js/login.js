@@ -11,6 +11,7 @@ function showLoginScreen(){
     $("#login").show();
     $("#welcome").hide();
     $("#register").hide();
+    $("#settingScreen").hide();
 }
 
 
@@ -21,6 +22,6 @@ function loginSubmit(){
         values[this.name] = $(this).val();
     });
     if(verifyUser(values["Username"],values["Password"])){
-        showGameScreen();
+        showSettingScreen();
     }
 }

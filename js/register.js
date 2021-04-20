@@ -11,6 +11,7 @@ function showRegisterScreen(){
     $("#register").show();
     $("#welcome").hide();
     $("#login").hide();
+    $("#settingScreen").hide();
 }
 
 function registerSubmit(){
