@@ -27,6 +27,7 @@ function showGameScreen(){
     $("#login").hide();
     $("#welcome").hide();
     $("#register").hide();
+	$("#settingScreen").hide();
 	Start();
 }
 
