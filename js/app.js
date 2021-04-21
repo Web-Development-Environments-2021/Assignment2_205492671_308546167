@@ -7,16 +7,17 @@ var start_time;
 var time_elapsed;
 var interval;
 var boardRowLength = 20;
-var boardColLength = 20;
+var boardColLength = 23;
 var scale = 80;
 var direction = 0;
 var eyeLocx;
 var eyeLocy;
-var eyeRadius
+var eyeRadius;
+var foodRadius;
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
-	scale = (canvas.width/(boardColLength));
+	scale = (canvas.height/(boardColLength));
 	eyeLocx = scale/12;
 	eyeLocy = -3*scale/12;
 	eyeRadius = scale/12;
@@ -42,36 +43,25 @@ function Start() {
 	var food_remain = 50;
 	var pacman_remain = 1;
 	start_time = new Date();
-	buildWalls();
+	// buildWalls();
+	buildFixedBoard();
+	boardRowLength = board.length;
+	boardColLength = board[0].length;
 	for (var i = 0; i < boardRowLength; i++) {
-		// board[i] = new Array();
-		//put obstacles in (i=3,j=3) and (i=3,j=4) and (i=3,j=5), (i=6,j=1) and (i=6,j=2)
 		for (var j = 0; j < boardColLength; j++) {
-			// if (
-			// 	(i == 3 && j == 3) ||
-			// 	(i == 3 && j == 4) ||
-			// 	(i == 3 && j == 5) ||
-			// 	(i == 6 && j == 1) ||
-			// 	(i == 6 && j == 2)
-			// ) {
-			// 	board[i][j] = 4;
-			// } else {
-				var randomNum = Math.random();
-				if ((randomNum <= (1.0 * food_remain) / cnt) && board[i][j] != 4) {
-					food_remain--;
-					board[i][j] = 1;
-				} else if ((randomNum < (1.0 * (pacman_remain + food_remain)) / cnt) && board[i][j] != 4 && pacman_remain != 0) {
-					shape.i = i;
-					shape.j = j;
-					pacman_remain--;
-					board[i][j] = 2;
-				} 
-				// else {
-				// 	board[i][j] = 0;
-				// }
-				cnt--;
+			var randomNum = Math.random();
+			if ((randomNum <= (1.0 * food_remain) / cnt) && board[i][j] != 4) {
+				food_remain--;
+				board[i][j] = 1;
+			} else if ((randomNum < (1.0 * (pacman_remain + food_remain)) / cnt) && board[i][j] != 4 && pacman_remain != 0) {
+				shape.i = i;
+				shape.j = j;
+				pacman_remain--;
+				board[i][j] = 2;
 			}
+			cnt--;
 		}
+	}
 	
 	while (food_remain > 0) {
 		var emptyCell = findRandomEmptyCell(board);
@@ -156,6 +146,7 @@ function Draw() {
 			center.y = j * scale + scale/2;
 			if (board[i][j] == 2) { //draw pacman
 				context.beginPath();
+				//			circle_center_x, circle_center_y, raduis, staring_angle, ending_angle, 
 				context.arc(center.x, center.y, scale/2, (0.15+0.5*direction) * Math.PI, (1.85+0.5*direction) * Math.PI); // half circle.. packman
 				context.lineTo(center.x, center.y);
 				context.fillStyle = pac_color; //color
@@ -166,13 +157,13 @@ function Draw() {
 				context.fill();
 			} else if (board[i][j] == 1) { // food
 				context.beginPath();
-				context.arc(center.x, center.y, 15, 0, 2 * Math.PI); // circle.. foddies
-				context.fillStyle = "black"; //color
+				context.arc(center.x, center.y, scale/5, 0, 2 * Math.PI); // circle.. foddies
+				context.fillStyle = "white"; //color
 				context.fill();
 			} else if (board[i][j] == 4) {
 				context.beginPath();
 				context.rect(center.x - scale/2, center.y - scale/2, scale, scale);
-				context.fillStyle = "grey"; //color
+				context.fillStyle = "#42f5da"; //color
 				context.fill();
 			}
 		}
@@ -283,4 +274,34 @@ function addWallsToArray(i, j, wallsList)
                     wallsList.push({"row": (startRow + l), "col": (startCol + k)});
             }
         }
+}
+
+function buildFixedBoard(){
+	board = [
+		[4, 4, 4, 4, 4 ,4 ,4 ,4 ,4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
+		[4, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4],
+		[4, 0, 4, 4, 0 ,4 ,4 ,4 ,0, 4, 4, 0, 4, 4, 4, 0, 4, 4, 0, 4],
+		[4, 0, 4, 4, 0 ,4 ,4 ,4 ,0, 4, 4, 0, 4, 4, 4, 0, 4, 4, 0, 4],
+		[4, 0, 4, 4, 0 ,4 ,4 ,4 ,0, 4, 4, 0, 4, 4, 4, 0, 4, 4, 0, 4],
+		[4, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
+		[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
+		[4, 0, 4, 4, 0, 4, 0, 4, 4, 4, 4, 4, 4, 0, 4, 0, 4, 4, 0, 4],
+		[0, 0, 0, 4, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 4, 0, 0, 0],
+  		[0, 0, 0, 4, 0, 4, 0, 4, 0, 0, 0, 0, 4, 0, 4, 0, 4, 0, 0, 0],
+  		[4, 4, 4, 4, 0, 4, 0, 4, 0, 0, 0, 0, 4, 0, 4, 0, 4, 4, 4, 4], 
+  		[4, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 4], 
+  		[4, 4, 4, 4, 0, 4, 0, 4, 0, 0, 0, 0, 4, 0, 4, 0, 4, 4, 4, 4], 
+  		[0, 0, 0, 4, 0, 4, 0, 4, 4, 4, 4, 4, 4, 0, 4, 0, 4, 0, 0, 0],
+  		[0, 0, 0, 4, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 4, 0, 0, 0],
+  		[4, 4, 4, 4, 0, 4, 4, 4, 0, 4, 4, 0, 4, 4, 4, 0, 4, 4, 4, 4],
+  		[4, 0, 0, 4, 0, 4, 0, 0, 0, 4, 4, 0, 0, 0, 4, 0, 0, 0, 0, 4],
+  		[4, 0, 4, 4, 0, 4, 0, 4, 4, 4, 4, 4, 4, 0, 4, 0, 4, 4, 0, 4],
+  		[4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4],
+  		[4, 0, 4, 4, 0, 4, 4, 4, 0, 4, 4, 0, 4, 4, 4, 0, 4, 4, 0, 4],
+  		[4, 0, 4, 4, 0, 4, 4, 4, 0, 4, 4, 0, 4, 4, 4, 0, 4, 4, 0, 4],
+  		[4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4],
+  		[4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+	]
+	 board = board[0].map((_, colIndex) => board.map(row => row[colIndex]));
+
 }
