@@ -1,5 +1,6 @@
 var context;
-var refrashRate = 200;
+var refrashRatePackman = 100;
+var refrashRateGhosts = 250;
 var packman;
 var ghosts;
 var board;
@@ -7,14 +8,16 @@ var score;
 var pac_color;
 var start_time;
 var time_elapsed;
-var interval;
+var intervalPackman;
+var intervalGhosts;
 var boardRowLength = 20;
 var boardColLength = 23;
 var scale = 80;
 var foodRadius;
-var monster_remain = 1;
+var num_ghost = 4;
 var food_remain = 50;
 var pacman_remain = 1;
+const ghosts_imges = ["ghost1.png", "ghost2.png", "ghost3.png", "ghost4.png"]
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
@@ -37,14 +40,12 @@ function Start() {
 	score = 0;
 	var cnt = 400;
 	food_remain = 50;
-	pacman_remain = 1;
 	start_time = new Date();
 
 	board = GameBoard.createBoard();
 	boardRowLength = board.length;
 	boardColLength = board[0].length;
-	ghosts = new Array();
-	ghosts[0] = new Ghost(board, "ghost.png", 10 ,11,);
+	buildGhosts();
 	for (var i = 0; i < boardRowLength; i++) {
 		for (var j = 0; j < boardColLength; j++) {
 			var randomNum = Math.random();
@@ -79,7 +80,8 @@ function Start() {
 		},
 		false
 	);
-	interval = setInterval(UpdatePosition, refrashRate);
+	intervalPackman = setInterval(UpdatePositionPackman, refrashRatePackman);
+	intervalGhosts = setInterval(UpdatePositionGhosts, refrashRateGhosts);
 }
 
 function findRandomEmptyCell(board) {
@@ -127,10 +129,6 @@ function Draw() {
 				context.arc(center.x, center.y, scale/5, 0, 2 * Math.PI); // circle.. foddies
 				context.fillStyle = "white"; //color
 				context.fill();
-		
-			} else if (board[i][j] == 3) { // monster
-				ghosts[0].draw(context, scale);
-
 			} else if (board[i][j] == 4) {
 				context.beginPath();
 				context.rect(center.x - scale/2, center.y - scale/2, scale, scale);
@@ -139,11 +137,13 @@ function Draw() {
 			}
 		}
 	}
+	ghosts.forEach(ghost => {
+		ghost.draw(context, scale);
+	});
 }
 
-function UpdatePosition() {
+function UpdatePositionPackman() {
 	packmanMove();
-	ghostMove();
 	var currentTime = new Date();
 	time_elapsed = (currentTime - start_time) / 1000;
 	if (score >= 20 && time_elapsed <= 10) {
@@ -157,6 +157,15 @@ function UpdatePosition() {
 	}
 }
 
+function UpdatePositionGhosts() {
+	ghostMove();
+	if (score == 50) {
+		window.clearInterval(interval);
+		window.alert("Game completed");
+	} else {
+		Draw();
+	}
+}
 
 function packmanMove(){
 	var x = GetKeyPressed();
@@ -167,4 +176,11 @@ function ghostMove(){
 	ghosts.forEach(ghost => {
 		ghost.moveChar(packman.get_i(), packman.get_j(), board);
 	});	
+}
+
+function buildGhosts(){
+	ghosts = new Array();
+	for (let index = 0; index < num_ghost; index++) {
+		ghosts.push(new Ghost(board, ghosts_imges[index], 10 + index ,11,));	
+	} 
 }
