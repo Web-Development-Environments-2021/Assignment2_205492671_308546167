@@ -1,6 +1,6 @@
 var context;
 var refrashRatePackman = 100;
-var refrashRateGhosts = 250;
+var refrashRateGhosts = 300;
 var packman;
 var ghosts;
 var board;
@@ -115,7 +115,7 @@ function GetKeyPressed() {
 
 function Draw() {
 	canvas.width = canvas.width; //clean board
-	lblScore.value = score;
+	lblScore.value = packman.get_Score();
 	lblTime.value = time_elapsed;
 	for (var i = 0; i < boardRowLength; i++) {
 		for (var j = 0; j < boardColLength; j++) {

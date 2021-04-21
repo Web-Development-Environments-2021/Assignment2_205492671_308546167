@@ -83,6 +83,6 @@ class Packman{
         return this.loc_j;
     }
     get_Score(){
-        return this.this.score;
+        return this.score;
     }
 }
