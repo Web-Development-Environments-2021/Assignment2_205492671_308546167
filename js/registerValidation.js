@@ -1,32 +1,15 @@
-// $(document).ready(function(){
-//    $("#registerForm").validate({
-//        rules: {
-//         Username: "required",
-// 		Password: "required",
-//         Fullname: "required",
-//         Email: "required",
-//         DateOfBirth: "required"
-//        },
-//        messages: {
-//         Username: "Please enter usernamexxxxxxxxxxxxxxxxxxxxxx",
-// 		Password: "invalid passwordxxxxxxxxxxxxxxxxxxxxxxxx",
-//         Fullname: "Please enter your full namexxxxxxxxxxxxxxxxxxxxxxxxxx",
-//         Email: "requiredxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-//         DateOfBirth: "requiredxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"  
-//        }
-//    }) 
-// });
-
-
 $().ready(function() {
-    // validate signup form on keyup and submit
     $("#registerForm").validate({
         rules: {
             Username: "required",
-            Password: "required",
+            Password: { 
+                required: true,
+                minlength: 6,
+                pwcheck: true
+            },
             Fullname: {
                 required: true,
-                minlength: 6
+                fncheck: true
             },
      
             Email: {
@@ -36,14 +19,36 @@ $().ready(function() {
             DateOfBirth: "required"
         },
         messages: {
-            Username: "Please enter your firstname",
-            Password: "Please enter your lastname",
-            Fullname: {
-                required: "Please enter a username",
-                minlength: "Your username must consist of at least 2 characters"
+            Username: "Missing",
+            Password: {
+                required: "Missing",
+                minlength: "Minimum 6 characters",
+                pwcheck: "Must contain letters and numbers"
             },
-            Email: "Please enter a valid email address",
-            DateOfBirth: "Please accept our policy",
-        }
+            Fullname: {
+                required: "Missing",
+                fncheck: "Can't contain numbers"
+            },
+            Email: {
+                required:"Missing",
+                email: "Email is not valid"
+            },
+            DateOfBirth: "Missing"
+        },
+        errorPlacement: function(label, element) {
+            label.addClass('errorMessage');
+            label.insertAfter(element);
+          },
+          wrapper: 'span'
+
     });
 });
+
+$.validator.addMethod("pwcheck",function(value) {
+    return /^[A-z0-9\d=!\-@._*]*$/.test(value) && /[A-z]/.test(value) && /\d/.test(value);
+});
+
+$.validator.addMethod("fncheck",function(value) {
+    return !(/[0-9]/.test(value));
+});
+
