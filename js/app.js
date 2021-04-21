@@ -8,6 +8,7 @@ var score;
 var pac_color;
 var start_time;
 var time_elapsed;
+var max_time = 100;
 var intervalPackman;
 var intervalGhosts;
 var boardRowLength = 20;
@@ -116,7 +117,7 @@ function GetKeyPressed() {
 function Draw() {
 	canvas.width = canvas.width; //clean board
 	lblScore.value = packman.get_Score();
-	lblTime.value = time_elapsed;
+	lblTime.value = max_time - time_elapsed;
 	for (var i = 0; i < boardRowLength; i++) {
 		for (var j = 0; j < boardColLength; j++) {
 			var center = new Object();
