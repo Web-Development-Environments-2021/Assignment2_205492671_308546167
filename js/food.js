@@ -6,7 +6,7 @@ class Food{
         this.loc_i = starti;
         this.loc_j = startj;
         this.point_color = color;
-        board[starti][startj] = 1;
+        board[starti][startj] = this;
         this.score = 5;
         this.radios = 5;
     }

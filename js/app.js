@@ -161,17 +161,12 @@ function UpdatePositionPackman() {
 
 function UpdatePositionGhosts() {
 	ghostMove();
-	if (score == 50) {
-		window.clearInterval(interval);
-		window.alert("Game completed");
-	} else {
-		Draw();
-	}
+	Draw();
 }
 
 function packmanMove(){
 	var x = GetKeyPressed();
-	packman.moveChar(x, board);
+	packman.moveChar(x, board, foods);
 }
 
 function ghostMove(){
@@ -188,17 +183,18 @@ function buildGhosts(){
 }
 
 function buildFood(){
-	foods = new Array();
+	foods = new Set();
 	let num_small_food = (food_remain*60)/100;
 	let num_mid_food = (food_remain*30)/100;
 	let num_big_food = (food_remain*10)/100;
 	for (let index = 0; index < num_small_food; index++) {
-		foods.push(new SmallFood(board, food_colors[0]));
+		foods.add(new SmallFood(board, food_colors[0]));
 	}
 	for (let index = 0; index < num_mid_food; index++) {
-		foods.push(new MidFood(board, food_colors[1]));
+		foods.add(new MidFood(board, food_colors[1]));
 	}
 	for (let index = 0; index < num_big_food; index++) {
-		foods.push(new BigFood(board, food_colors[2]));
+		foods.add(new BigFood(board, food_colors[2]));
 	}
+
 }

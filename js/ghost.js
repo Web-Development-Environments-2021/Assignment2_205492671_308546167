@@ -15,27 +15,32 @@ class Ghost{
     }
 
     moveChar(pac_i, pac_j, board){  
-        let best_move = {"i": 900, "j" : 1000, "distance": 1000};
+        let best_move = {"i": this.loc_i, "j" : this.loc_j, "distance": 1000};
         let man_dis;
-        if (board[this.loc_i+1][this.loc_j] != 4 && board[this.loc_i+1][this.loc_j] != 3){
-            man_dis = Math.abs(this.loc_i+1-pac_i)+Math.abs(this.loc_j-pac_j);
-            if (man_dis<best_move.distance)
-                best_move = {"i": this.loc_i+1, "j" : this.loc_j, "distance": man_dis};
+        try{
+            if (board[this.loc_i+1][this.loc_j] != 4 && board[this.loc_i+1][this.loc_j] != 3){
+                man_dis = Math.abs(this.loc_i+1-pac_i)+Math.abs(this.loc_j-pac_j);
+                if (man_dis<best_move.distance)
+                    best_move = {"i": this.loc_i+1, "j" : this.loc_j, "distance": man_dis};
+            }
+            if (board[this.loc_i-1][this.loc_j] != 4 && board[this.loc_i-1][this.loc_j] != 3){
+                man_dis = Math.abs(this.loc_i-1-pac_i)+Math.abs(this.loc_j-pac_j)
+                if (man_dis<best_move.distance)
+                    best_move = {"i": this.loc_i-1, "j" : this.loc_j, "distance": man_dis};
+            }
+            if (board[this.loc_i][this.loc_j+1] != 4 && board[this.loc_i][this.loc_j+1] != 3){
+                man_dis = Math.abs(this.loc_i-pac_i)+Math.abs(this.loc_j+1-pac_j);
+                if (man_dis<best_move.distance)
+                    best_move = {"i": this.loc_i, "j" : this.loc_j+1, "distance": man_dis};
+            }
+            if (board[this.loc_i][this.loc_j-1] != 4 && board[this.loc_i][this.loc_j-1] != 3){
+                man_dis = Math.abs(this.loc_i+1-pac_i)+Math.abs(this.loc_j-1-pac_j);
+                if (man_dis<best_move.distance)
+                    best_move = {"i": this.loc_i, "j" : this.loc_j-1, "distance": man_dis};
+            }
         }
-        if (board[this.loc_i-1][this.loc_j] != 4 && board[this.loc_i-1][this.loc_j] != 3){
-            man_dis = Math.abs(this.loc_i-1-pac_i)+Math.abs(this.loc_j-pac_j)
-            if (man_dis<best_move.distance)
-                best_move = {"i": this.loc_i-1, "j" : this.loc_j, "distance": man_dis};
-        }
-        if (board[this.loc_i][this.loc_j+1] != 4 && board[this.loc_i][this.loc_j+1] != 3){
-            man_dis = Math.abs(this.loc_i-pac_i)+Math.abs(this.loc_j+1-pac_j);
-            if (man_dis<best_move.distance)
-                best_move = {"i": this.loc_i, "j" : this.loc_j+1, "distance": man_dis};
-        }
-        if (board[this.loc_i][this.loc_j-1] != 4 && board[this.loc_i][this.loc_j-1] != 3){
-            man_dis = Math.abs(this.loc_i+1-pac_i)+Math.abs(this.loc_j-1-pac_j);
-            if (man_dis<best_move.distance)
-                best_move = {"i": this.loc_i, "j" : this.loc_j-1, "distance": man_dis};
+        catch(rangeError){
+            console.log(rangeError);
         }
         board[this.loc_i][this.loc_j] = 0;
         this.loc_i = best_move.i;

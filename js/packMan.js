@@ -31,7 +31,7 @@ class Packman{
         context.fill();
     }
 
-    moveChar(x, board){
+    moveChar(x, board, foods){
         board[this.loc_i][this.loc_j] = 0;
         if (x == 1) {
             if (this.loc_j > 0 && board[this.loc_i][this.loc_j - 1] != 4) {
@@ -73,8 +73,9 @@ class Packman{
             this.eyeLocx = scale/12;
             this.eyeLocy = -3*scale/12;
         }
-        if (board[this.loc_i][this.loc_j] == 1) {
-            this.score++;
+        if (board[this.loc_i][this.loc_j] instanceof Food) {
+            this.score += board[this.loc_i][this.loc_j].get_score();
+            foods.delete(board[this.loc_i][this.loc_j]);
         }
         board[this.loc_i][this.loc_j] = 2;
     }
