@@ -1,5 +1,7 @@
 var context;
-var shape = new Object();
+var refrashRate = 200;
+var packmanLoc = new Object();
+var monsterLoc = new Object();
 var board;
 var score;
 var pac_color;
@@ -14,6 +16,10 @@ var eyeLocx;
 var eyeLocy;
 var eyeRadius;
 var foodRadius;
+var monster_remain = 1;
+var food_remain = 50;
+var pacman_remain = 1;
+const ghost_img = new Image();
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
@@ -40,22 +46,26 @@ function Start() {
 	score = 0;
 	pac_color = "yellow";
 	var cnt = 400;
-	var food_remain = 50;
-	var pacman_remain = 1;
+	food_remain = 50;
+	pacman_remain = 1;
 	start_time = new Date();
 	// buildWalls();
 	buildFixedBoard();
 	boardRowLength = board.length;
 	boardColLength = board[0].length;
+	buildMonsters();
 	for (var i = 0; i < boardRowLength; i++) {
 		for (var j = 0; j < boardColLength; j++) {
 			var randomNum = Math.random();
+			if (i == monsterLoc.i && j == monsterLoc.j){
+				board[i][j] = 3;
+			}
 			if ((randomNum <= (1.0 * food_remain) / cnt) && board[i][j] != 4) {
 				food_remain--;
 				board[i][j] = 1;
 			} else if ((randomNum < (1.0 * (pacman_remain + food_remain)) / cnt) && board[i][j] != 4 && pacman_remain != 0) {
-				shape.i = i;
-				shape.j = j;
+				packmanLoc.i = i;
+				packmanLoc.j = j;
 				pacman_remain--;
 				board[i][j] = 2;
 			}
@@ -83,7 +93,7 @@ function Start() {
 		},
 		false
 	);
-	interval = setInterval(UpdatePosition, 100);
+	interval = setInterval(UpdatePosition, refrashRate);
 }
 
 function findRandomEmptyCell(board) {
@@ -160,6 +170,10 @@ function Draw() {
 				context.arc(center.x, center.y, scale/5, 0, 2 * Math.PI); // circle.. foddies
 				context.fillStyle = "white"; //color
 				context.fill();
+		
+			} else if (board[i][j] == 3) { // food
+				context.drawImage(ghost_img, monsterLoc.i*scale, monsterLoc.j*scale,scale, scale);
+
 			} else if (board[i][j] == 4) {
 				context.beginPath();
 				context.rect(center.x - scale/2, center.y - scale/2, scale, scale);
@@ -171,32 +185,8 @@ function Draw() {
 }
 
 function UpdatePosition() {
-	board[shape.i][shape.j] = 0;
-	var x = GetKeyPressed();
-	if (x == 1) {
-		if (shape.j > 0 && board[shape.i][shape.j - 1] != 4) {
-			shape.j--;
-		}
-	}
-	if (x == 2) {
-		if (shape.j < boardColLength-1 && board[shape.i][shape.j + 1] != 4) {
-			shape.j++;
-		}
-	}
-	if (x == 3) {
-		if (shape.i > 0 && board[shape.i - 1][shape.j] != 4) {
-			shape.i--; 
-		}
-	}
-	if (x == 4) {
-		if (shape.i < boardRowLength-1 && board[shape.i + 1][shape.j] != 4) {
-			shape.i++;
-		}
-	}
-	if (board[shape.i][shape.j] == 1) {
-		score++;
-	}
-	board[shape.i][shape.j] = 2;
+	packmanMove();
+	ghostMove();
 	var currentTime = new Date();
 	time_elapsed = (currentTime - start_time) / 1000;
 	if (score >= 20 && time_elapsed <= 10) {
@@ -303,5 +293,68 @@ function buildFixedBoard(){
   		[4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
 	]
 	 board = board[0].map((_, colIndex) => board.map(row => row[colIndex]));
+}
 
+function buildMonsters(){
+	ghost_img.src = "ghost.png";
+	monsterLoc.i = 11;
+	monsterLoc.j = 10;
+}
+
+function packmanMove(){
+	board[packmanLoc.i][packmanLoc.j] = 0;
+	var x = GetKeyPressed();
+	if (x == 1) {
+		if (packmanLoc.j > 0 && board[packmanLoc.i][packmanLoc.j - 1] != 4) {
+			packmanLoc.j--;
+		}
+	}
+	if (x == 2) {
+		if (packmanLoc.j < boardColLength-1 && board[packmanLoc.i][packmanLoc.j + 1] != 4) {
+			packmanLoc.j++;
+		}
+	}
+	if (x == 3) {
+		if (packmanLoc.i > 0 && board[packmanLoc.i - 1][packmanLoc.j] != 4) {
+			packmanLoc.i--; 
+		}
+	}
+	if (x == 4) {
+		if (packmanLoc.i < boardRowLength-1 && board[packmanLoc.i + 1][packmanLoc.j] != 4) {
+			packmanLoc.i++;
+		}
+	}
+	if (board[packmanLoc.i][packmanLoc.j] == 1) {
+		score++;
+	}
+	board[packmanLoc.i][packmanLoc.j] = 2;
+}
+
+function ghostMove(){
+	best_move = {"i": 1000, "j" : 1000, "dis": 1000}
+	board[monsterLoc.i][monsterLoc.j] = 0;
+	let man_dis;
+	if (board[monsterLoc.i+1][monsterLoc.j] != 4){
+		man_dis = Math.abs(monsterLoc.i+1-packmanLoc.i)+Math.abs(monsterLoc.j-packmanLoc.j);
+		if (man_dis<best_move.dis)
+			best_move = {"i": monsterLoc.i+1, "j" : monsterLoc.j, "dis": man_dis};
+	}
+	if (board[monsterLoc.i-1][monsterLoc.j] != 4){
+		man_dis = Math.abs(monsterLoc.i-1-packmanLoc.i)+Math.abs(monsterLoc.j-packmanLoc.j)
+		if (man_dis<best_move.dis)
+			best_move = {"i": monsterLoc.i-1, "j" : monsterLoc.j, "dis": man_dis};
+	}
+	if (board[monsterLoc.i][monsterLoc.j+1] != 4){
+		man_dis = Math.abs(monsterLoc.i-packmanLoc.i)+Math.abs(monsterLoc.j+1-packmanLoc.j);
+		if (man_dis<best_move.dis)
+			best_move = {"i": monsterLoc.i, "j" : monsterLoc.j+1, "dis": man_dis};
+	}
+	if (board[monsterLoc.i][monsterLoc.j-1] != 4){
+		man_dis = Math.abs(monsterLoc.i+1-packmanLoc.i)+Math.abs(monsterLoc.j-1-packmanLoc.j);
+		if (man_dis<best_move.dis)
+			best_move = {"i": monsterLoc.i, "j" : monsterLoc.j-1, "dis": man_dis};
+	}
+	monsterLoc.i = best_move.i;
+	monsterLoc.j = best_move.j;
+	board[monsterLoc.i][monsterLoc.j] = 3;
 }
