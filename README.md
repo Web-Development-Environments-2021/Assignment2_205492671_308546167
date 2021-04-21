@@ -11,4 +11,3 @@
  - double key pressed cases in setting like "ArrowUp7"
  - hide the setting
  - random button
- - pacman eye
