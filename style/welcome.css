@@ -1,0 +1,48 @@
+
+html {
+  height: 100%;
+}
+
+
+
+body {
+    background: url(../resources/pictures/background.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+  
+  }
+
+
+  #register_button, #login_button {
+    background:    #f4b41a;
+    border-radius: 11px;
+    padding:       20px 50px;
+    color:         black;
+    display:       inline-block;
+    font:          normal bold 25px/1 "Open Sans", sans-serif;
+    text-align:    center;
+
+    
+  }
+  #login_button {
+    position: absolute;
+    top: 18%;
+    left: 44%;
+  }
+
+  #register_button{
+    position: fixed;
+    top: 28%;
+    left: 43%;
+  }
+
+  #register_button:hover, #login_button:hover {
+    background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+    background-color:#ffab23;
+  }
+ 
