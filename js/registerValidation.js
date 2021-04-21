@@ -20,7 +20,7 @@
 
 $().ready(function() {
     // validate signup form on keyup and submit
-    $("#signupForm").validate({
+    $("#registerForm").validate({
         rules: {
             Username: "required",
             Password: "required",
