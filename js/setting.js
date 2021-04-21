@@ -1,29 +1,24 @@
 
 $(document).ready(function(){
-    $("#submitSetting").click(settingSubmit);
-    $( "#upArrow" ).keydown(function(event) {
-        if((event.keyCode < 48 || event.keyCode >105) && event.keyCode != 8){
-            $("#upArrow").val(event.key);
+    $("#play_btn_area").click(settingSubmit);
+    $("#random_btn_area").click(randomSetting);
+    
+    $( "#upArrow").keydown(function(event) {
+        keydownpressed(event,"#upArrow");
         }  
-    });
-    $( "#downArrow" ).keydown(function(event) {
-        if((event.keyCode < 48 || event.keyCode >105) && event.keyCode != 8){
-            $("#downArrow").val(event.key);
-        }
-    });
-    $( "#leftArrow" ).keydown(function(event) {
-        if((event.keyCode < 48 || event.keyCode >105) && event.keyCode != 8){
-            $("#leftArrow").val(event.key);
-        }
-    });
-    $( "#rightArrow" ).keydown(function(event) {
-        if((event.keyCode < 48 || event.keyCode >105) && event.keyCode != 8){
-            $("#rightArrow").val(event.key);
-
-        }
-    });
-
-
+    );
+    $( "#downArrow").keydown(function(event) {
+        keydownpressed(event,"#downArrow");
+        }  
+    );
+    $( "#leftArrow").keydown(function(event) {
+        keydownpressed(event,"#leftArrow");
+        }  
+    );
+    $( "#rightArrow").keydown(function(event) {
+        keydownpressed(event,"#rightArrow");
+        }  
+    );
 
 });
 
@@ -51,17 +46,21 @@ function keydownpressed(event, arrowType){
     }  
 }
 
-    // $("#upArrow").keydown(
-    //     {
-    //     keydownpressed(event, l)
-    //     }
-    //     );
+function randomSetting() {
+    $("#upArrow").val("ArrowUp");
+    $("#downArrow").val("ArrowDown");
+    $("#leftArrow").val("ArrowLeft");
+    $("#rightArrow").val("ArrowRight");
+    $("#nApples").val(getRndInteger(50,90));
+    $("#bigAppleColor").val("#1ACFCE");
+    $("#medAppleColor").val("#F1C216");
+    $("#smallAppleColor").val("#46D852");
+    $("#gameTime").val(getRndInteger(30,120));
+    $("#nMonsters").val(getRndInteger(1,5));
+}
 
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min) ) + min;
+}
 
-
-
-
-    // $("#downArrow").keydown(keydownpressed(event, "#downArrow"));
-    // $("#leftArrow").keydown(keydownpressed(event, "#leftArrow"));
-    // $("#rightArrow").keydown(keydownpressed(event, "#rightArrow"));
 
