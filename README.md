@@ -7,4 +7,6 @@
  - clear forms
  - footer - the dark side of the footer.
  - double key pressed cases in setting like "ArrowUp7"
+ - all styles in index.html should move to css files
+ - create resource directory and move the pictures
  

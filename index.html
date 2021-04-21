@@ -16,14 +16,19 @@
 		<link rel="stylesheet" type="text/css" href="./style/login.css" />
 		<link rel="stylesheet" type="text/css" href="./style/register.css" />
 		<link rel="stylesheet" type="text/css" href="./style/setting.css" />
+		<link rel="stylesheet" type="text/css" href="./style/welcome.css" />
 		<link rel="stylesheet" type="text/css" href="./style/game.css" />
+		<title>Liad & Naor PAC-MAN</title>
 	</head>
 
 	<body>
 		<pre id="console-log"></pre>
 		<header>
-			<h1 id="gameName">Apple Pacman</h1>
-			<h3>Liad Oz & Naor Suban</h3>
+			<!-- <span style="color:yellow">
+				Liad Oz & Naor Suban Pacman
+				
+			</span> -->
+			
 		</header>
 		<div id="menu">
 			<ul>
@@ -31,14 +36,16 @@
 				<li id="register_menu"><a>Register</a></li>
 				<li id="login_menu"><a>Login</a></li>
 				<li id="about_menu"><a>About</a></li>
+				<img id="logo" src="resources/pictures/logo.png">
 			</ul>
 		</div>
 		<br>
 		<div id="content">
 			<div id="welcome">
-				<button id="register_button"> Register </button>
-				<br>
 				<button id="login_button"> Login </button>
+				<button id="register_button"> Register </button>
+
+				
 			</div> 
 
 			<div id="register" class="register-box">
@@ -99,7 +106,7 @@
 
 			<section id="about_dialog" class="web_dialog">
 				<table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
-				   <tr style="background-color: pink;">
+				   <tr style="background-color: #f4b41a;">
 					  <td><b>Modal Dialog</b></td>
 					  <td>
 						 <a href="#" id="aboutBtnClose"><b>Close</b></a>
