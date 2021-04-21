@@ -166,30 +166,6 @@ body {
   }
 }
 
-::-webkit-calendar-picker-indicator {
-  filter: invert(1);
-  position: fixed;
-  padding-right: 75px;
-}
-
-#register_btn_area {
-position: fixed;
-left: 140px;
-bottom: 0px;
-/* width: 100%; */
-text-align: center;
-
-}
-
-#subRegister{
-background-color: transparent;
-font-size: 20px;
-color: #fff;
-font-weight: bold;
-border-color: transparent;
-
-}
-
 
 
 
