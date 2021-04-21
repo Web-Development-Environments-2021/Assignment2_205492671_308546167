@@ -15,7 +15,10 @@ class Packman{
     }
 
 
-    draw(context, center, scale){
+    draw(context, scale){
+        let center = {};
+        center.x = this.loc_i * scale + scale/2;
+        center.y = this.loc_j * scale + scale/2;
         context.beginPath();
         //			circle_center_x, circle_center_y, raduis, staring_angle, ending_angle, 
         context.arc(center.x, center.y, scale/2, (0.15+0.5*this.direction) * Math.PI, (1.85+0.5*this.direction) * Math.PI); // half circle.. packman

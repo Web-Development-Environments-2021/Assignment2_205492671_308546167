@@ -4,6 +4,8 @@ var refrashRateGhosts = 300;
 var packman;
 var ghosts;
 var board;
+var foods;
+var food_colors = ["blue", "pink", "red"];
 var score;
 var pac_color;
 var start_time;
@@ -17,7 +19,6 @@ var scale = 80;
 var foodRadius;
 var num_ghost = 4;
 var food_remain = 50;
-var pacman_remain = 1;
 const ghosts_imges = ["ghost1.png", "ghost2.png", "ghost3.png", "ghost4.png"]
 
 $(document).ready(function() {
@@ -47,22 +48,23 @@ function Start() {
 	boardRowLength = board.length;
 	boardColLength = board[0].length;
 	buildGhosts();
-	for (var i = 0; i < boardRowLength; i++) {
-		for (var j = 0; j < boardColLength; j++) {
-			var randomNum = Math.random();
-			if ((randomNum <= (1.0 * food_remain) / cnt) && board[i][j] != 4) {
-				food_remain--;
-				board[i][j] = 1;
-			}
-			cnt--;
-		}
-	}
+	buildFood();
+	// for (var i = 0; i < boardRowLength; i++) {
+	// 	for (var j = 0; j < boardColLength; j++) {
+	// 		var randomNum = Math.random();
+	// 		if ((randomNum <= (1.0 * food_remain) / cnt) && board[i][j] != 4) {
+	// 			food_remain--;
+	// 			board[i][j] = 1;
+	// 		}
+	// 		cnt--;
+	// 	}
+	// }
 	
-	while (food_remain > 0) {
-		var emptyCell = findRandomEmptyCell(board);
-		board[emptyCell[0]][emptyCell[1]] = 1;
-		food_remain--;
-	}
+	// while (food_remain > 0) {
+	// 	var emptyCell = findRandomEmptyCell(board);
+	// 	board[emptyCell[0]][emptyCell[1]] = 1;
+	// 	food_remain--;
+	// }
 
 	packman = new Packman(board, scale/12, -3*scale/12, scale/12);
 
@@ -120,17 +122,10 @@ function Draw() {
 	lblTime.value = max_time - time_elapsed;
 	for (var i = 0; i < boardRowLength; i++) {
 		for (var j = 0; j < boardColLength; j++) {
-			var center = new Object();
-			center.x = i * scale + scale/2;
-			center.y = j * scale + scale/2;
-			if (board[i][j] == 2) { //draw pacman
-				packman.draw(context, center, scale);
-			} else if (board[i][j] == 1) { // food
-				context.beginPath();
-				context.arc(center.x, center.y, scale/5, 0, 2 * Math.PI); // circle.. foddies
-				context.fillStyle = "white"; //color
-				context.fill();
-			} else if (board[i][j] == 4) {
+			if (board[i][j] == 4) {
+				let center = {};
+				center.x = i * scale + scale/2;
+				center.y = j * scale + scale/2;
 				context.beginPath();
 				context.rect(center.x - scale/2, center.y - scale/2, scale, scale);
 				context.fillStyle = "#42f5da"; //color
@@ -138,9 +133,15 @@ function Draw() {
 			}
 		}
 	}
+	
+	foods.forEach(food => {
+		food.draw(context, scale);
+	});
+	
 	ghosts.forEach(ghost => {
 		ghost.draw(context, scale);
 	});
+	packman.draw(context, scale);
 }
 
 function UpdatePositionPackman() {
@@ -184,4 +185,20 @@ function buildGhosts(){
 	for (let index = 0; index < num_ghost; index++) {
 		ghosts.push(new Ghost(board, ghosts_imges[index], 10 + index ,11,));	
 	} 
+}
+
+function buildFood(){
+	foods = new Array();
+	let num_small_food = (food_remain*60)/100;
+	let num_mid_food = (food_remain*30)/100;
+	let num_big_food = (food_remain*10)/100;
+	for (let index = 0; index < num_small_food; index++) {
+		foods.push(new SmallFood(board, food_colors[0]));
+	}
+	for (let index = 0; index < num_mid_food; index++) {
+		foods.push(new MidFood(board, food_colors[1]));
+	}
+	for (let index = 0; index < num_big_food; index++) {
+		foods.push(new BigFood(board, food_colors[2]));
+	}
 }
