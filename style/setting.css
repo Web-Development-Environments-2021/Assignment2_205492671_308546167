@@ -189,7 +189,7 @@
 #random_btn_area{
   position: absolute;
   right: 210px;
-  bottom: 5px;
+  bottom: 0px;
 }
 
 .errorMessage {
