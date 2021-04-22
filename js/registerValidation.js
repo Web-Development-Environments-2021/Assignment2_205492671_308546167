@@ -39,7 +39,11 @@ $().ready(function() {
             label.addClass('errorMessage');
             label.insertAfter(element);
           },
-          wrapper: 'span'
+          wrapper: 'span',
+
+          submitHandler: function(event){
+            registerSubmit();
+        }
 
     });
 });
