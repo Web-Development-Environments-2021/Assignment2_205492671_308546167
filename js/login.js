@@ -12,6 +12,7 @@ function showLoginScreen(){
     $("#welcome").hide();
     $("#register").hide();
     $("#settingScreen").hide();
+
 }
 
 
@@ -25,3 +26,4 @@ function loginSubmit(){
         showSettingScreen();
     }
 }
+

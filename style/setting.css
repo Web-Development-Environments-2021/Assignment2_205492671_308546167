@@ -58,7 +58,8 @@
     position: relative;
     display: inline-block;
     padding: 10px 20px;
-    color: #03e9f4;
+    /* color: #03e9f4; */
+    color: #f4b41a;
     font-size: 16px;
     text-decoration: none;
     text-transform: uppercase;
@@ -69,13 +70,13 @@
   }
   
   .setting-box a:hover {
-    background: #03e9f4;
+    background: #f4b41a;
     color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 5px #03e9f4,
-                0 0 25px #03e9f4,
-                0 0 50px #03e9f4,
-                0 0 100px #03e9f4;
+    box-shadow: 0 0 5px #f4b41a,
+                0 0 25px #f4b41a,
+                0 0 50px #f4b41a,
+                0 0 100px #f4b41a;
   }
   
   .setting-box a span {
@@ -88,7 +89,7 @@
     left: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #03e9f4);
+    background: linear-gradient(90deg, transparent, #f4b41a);
     animation: btn-anim1 1s linear infinite;
   }
   
@@ -106,7 +107,7 @@
     right: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(180deg, transparent, #03e9f4);
+    background: linear-gradient(180deg, transparent, #f4b41a);
     animation: btn-anim2 1s linear infinite;
     animation-delay: .25s
   }
@@ -125,7 +126,7 @@
     right: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(270deg, transparent, #03e9f4);
+    background: linear-gradient(270deg, transparent, #f4b41a);
     animation: btn-anim3 1s linear infinite;
     animation-delay: .5s
   }
@@ -144,7 +145,7 @@
     left: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(360deg, transparent, #03e9f4);
+    background: linear-gradient(360deg, transparent, #f4b41a);
     animation: btn-anim4 1s linear infinite;
     animation-delay: .75s
   }
@@ -189,6 +190,14 @@
   position: absolute;
   right: 210px;
   bottom: 5px;
+}
+
+.errorMessage {
+  position:relative;
+  font-size: 5px;
+  top: 30px;
+  left: 10px;
+
 }
 
 

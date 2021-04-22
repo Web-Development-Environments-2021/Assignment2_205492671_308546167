@@ -22,6 +22,7 @@ function registerSubmit(){
     });
 
     addToDB(values["Username"],values["Password"],values["Fullname"],values["Email"],values["DateOfBirth"]);
+    showLoginScreen();
     
 }
 

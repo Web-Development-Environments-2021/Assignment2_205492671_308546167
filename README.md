@@ -8,10 +8,9 @@
  - footer - the dark side of the footer.
  - double key pressed cases in setting like "ArrowUp7"
  - all styles in index.html should move to css files
- - setting page - change the colors
- - write the about modal dialog decription
- - create a designed logo
- - register problem: does'nt add a new user ( you can register but no login after it)
+ - write the about modal dialog decription ++++
+ - create a designed logo ++++
+ - register problem: does'nt add a new user ( you can register but no login after it)   ++++
  - new deisgn for the pac man board
  - lives for pac man
  - gamve over at time=0 or lives=0
@@ -27,4 +26,5 @@
  - game over message
  - new game option
  - new design for Time & score  
+ - modal dialog -> click out of modal dialog should close the dialog
  
