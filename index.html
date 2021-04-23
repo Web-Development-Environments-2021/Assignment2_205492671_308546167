@@ -30,13 +30,7 @@
 
 	<body>
 		<pre id="console-log"></pre>
-		<header>
-			<!-- <span style="color:yellow">
-				Liad Oz & Naor Suban Pacman
-				
-			</span> -->
-			
-		</header>
+		<header></header>
 		<div id="menu">
 			<ul>
 				<li id="welcome_menu"><a>Welcome</a></li>
@@ -113,9 +107,9 @@
 
 
 			<section id="about_dialog" class="web_dialog">
-				<table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
-				   <tr style="background-color: #f4b41a;">
-					  <td><b>Modal Dialog</b></td>
+				<table id="about_table" cellpadding="3" cellspacing="0">
+				   <tr id="about_table_header">
+					  <td><b>About</b></td>
 					  <td>
 						 <a href="#" id="aboutBtnClose"><b>Close</b></a>
 					  </td>
@@ -124,12 +118,9 @@
 					  <td>
 						<span>Naor Suban - 205492671</span><br>
 						<span>Liad Oz - 308546167</span><br>
-						<span>The JQuery plugin that we used are:</span>
-
-
-
+						<span>The JQuery plug-ins that we used are:</span><br>
+						<span>Validate</span>
 					  </td>
-					
 				   </tr>
 			 
 				</table>
@@ -196,7 +187,6 @@
 						<span></span>
 						<span></span>
 						Play
-						<!-- <input id="submitSetting" type="submit"  value="Play"></input> -->
 					</a>
 				</div>
 
@@ -215,14 +205,11 @@
 					<input id="lblTime" type="text" />
 				</div>
 				<div id="game">
-					<canvas id="canvas" height="500" width="860"></canvas>
+					<canvas id="canvas" height="480" width="860"></canvas>
 				</div>
 			</div>
-
 		</div>
 		<footer>
-			<br>
-			<br>
 			<h6>2021 ©   Liad Oz & Naor Suban the KILLERS</h6>
 		</footer>
 	</body>

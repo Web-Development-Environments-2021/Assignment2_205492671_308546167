@@ -5,7 +5,6 @@
  - sign out ->>> welcome
  - clear forms -NAOR
  - double key pressed cases in setting like "ArrowUp7"
- - all styles in index.html should move to css files - NAOR
  - write the about modal dialog decription ++++
  - new deisgn for the pac man board
  - lives for pac man - LIAD
