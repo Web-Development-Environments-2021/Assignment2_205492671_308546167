@@ -3,6 +3,7 @@ $(document).ready(function(){
     $("#login_button").click(showLoginScreen);
     $("#login_menu").click(showLoginScreen);
     $("#subLogin").click(loginSubmit);
+    $("#logOut_menu").click(showLoginScreen);
 });
 
 
@@ -13,7 +14,6 @@ function showLoginScreen(){
     $("#welcome").hide();
     $("#register").hide();
     $("#settingScreen").hide();
-
 }
 
 
@@ -24,10 +24,21 @@ function loginSubmit(){
         values[this.name] = $(this).val();
     });
     if(verifyUser(values["Username"],values["Password"])){
+        onlineUser = values["Username"];
+        showUsername();
         showSettingScreen();
+        $("#register_menu").hide();
+        $("#login_menu").hide();
+        $("#logOut_menu").show();
+        
     }
     else {
         alert("The username or password is incorrect");
     }
+}
+
+function showUsername(){
+    $("#onlineUserText").show();
+    $("#onlineUserText").append(onlineUser);
 }
 

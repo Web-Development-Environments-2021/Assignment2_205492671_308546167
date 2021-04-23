@@ -1,19 +1,18 @@
 # Assignment2
  To Do List:
- - fix autocomplete user name in login form.
  - hide gameScreen on pressing on other menu
- - sign out ->>> welcome
  - double key pressed cases in setting like "ArrowUp7"
- - write the about modal dialog decription ++++
  - new deisgn for the pac man board
  - logo instead of header - should be written in the README
  - setting page along side the page
- - The username  of the user that logged in' should be shown in the top right of the page. 
  - create a creature that moves randomly - LIAD
  - choose song 
  - bouns level
  - game over message
  - new design for Time & score  
+ - logout hide until log in
+ - log in -> hide login+register
+
 
  
 

@@ -8,10 +8,14 @@ $(document).ready(function(){
 
 function showWelcomeScreen(){
     $("#welcome").show();
+    $("#logOut_menu").hide();
     $("#register").hide();
     $("#login").hide();
     $("#settingScreen").hide();
     $("#gameScreen").hide();
+    $("#onlineUserText").hide();
+    onlineUser = null;
+    $("#onlineUserText").text("Online User: ");
    }
 
 
