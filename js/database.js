@@ -9,7 +9,7 @@ const db = [
 	}
 ];
 
-var onlineUser = "guest";
+var onlineUser = null;
 
 
 function addToDB(userID, pass, fname, mail, birthDate){
