@@ -3,6 +3,7 @@ $(document).ready(function(){
     $("#register_button").click(showRegisterScreen);
     $("#register_menu").click(showRegisterScreen);
 
+
 });
 
 

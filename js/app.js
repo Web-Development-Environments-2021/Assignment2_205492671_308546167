@@ -19,7 +19,7 @@ var scale = 80;
 var foodRadius;
 var num_ghost = 4;
 var food_remain = 50;
-const ghosts_imges = ["ghost1.png", "ghost2.png", "ghost3.png", "ghost4.png"]
+const ghosts_imges = ["./resources/pictures/ghost1.png", "./resources/pictures/ghost2.png", "./resources/pictures/ghost3.png", "./resources/pictures/ghost4.png"]
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
