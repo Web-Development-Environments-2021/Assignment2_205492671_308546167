@@ -63,7 +63,6 @@ function reciveSettings(up, down, left, right, food_num, big_food_color, mid_foo
 
 function Start() {
 	score = 0;
-	var cnt = 400;
 	food_remain = 50;
 	start_time = new Date();
 
@@ -127,6 +126,7 @@ function Draw() {
 	canvas.width = canvas.width; //clean board
 	lblScore.value = packman.get_Score();
 	lblTime.value = max_time - time_elapsed;
+	lblLives.value = packman.get_lives();
 	for (var i = 0; i < boardRowLength; i++) {
 		for (var j = 0; j < boardColLength; j++) {
 			if (board[i][j] == 4) {

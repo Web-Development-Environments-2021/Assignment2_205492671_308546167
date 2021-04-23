@@ -27,6 +27,8 @@ class Ghost{
         this.loc_j = best_move.j;
         if (board[this.loc_i][this.loc_j] instanceof Food)
             this.food =  board[this.loc_i][this.loc_j];
+        else if (board[this.loc_i][this.loc_j] instanceof Packman)
+            board[this.loc_i][this.loc_j].hurt();
         board[this.loc_i][this.loc_j] = 3;
     }
 
