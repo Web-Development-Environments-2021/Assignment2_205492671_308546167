@@ -99,12 +99,14 @@ class Packman{
 
     hurt(){
         this.lives--;
-        window.alert("i have been hit!");
+        this.score += -10;
+        
         let emptyCell = findRandomEmptyCell(board);
         let starti = emptyCell[0];
         let startj = emptyCell[1];        
         this.loc_i = starti;
         this.loc_j = startj;
+        pacmanLostLife();
     }
 
 

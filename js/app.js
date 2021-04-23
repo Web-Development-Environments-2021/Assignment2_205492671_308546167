@@ -1,4 +1,5 @@
 const black = "#000000";
+var pause_game = false;
 var context;
 var refrashRatePackman = 100;
 var refrashRateGhosts = 300;
@@ -152,6 +153,8 @@ function Draw() {
 }
 
 function UpdatePositionPackman() {
+	if (pause_game == true)
+		return;
 	packmanMove();
 	var currentTime = new Date();
 	time_elapsed = (currentTime - start_time) / 1000;
@@ -203,6 +206,13 @@ function buildFood(){
 	}
 	for (let index = 0; index < num_big_food; index++) {
 		foods.add(new BigFood(board, food_colors[2]));
+	}
+
+}
+
+function pacmanLostLife(){
+	for (let index = 0; index < num_ghost; index++) {
+		ghosts[index].goToStart(ghost_starter_loc[index][0] ,ghost_starter_loc[index][1], board);	
 	}
 
 }

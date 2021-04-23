@@ -67,5 +67,14 @@ class Ghost{
     return best_move;
     }
 
+    goToStart(starti, startj){
+        if (this.food != null)
+            board[this.loc_i][this.loc_j] = this.food;
+        else
+        board[this.loc_i][this.loc_j] = 0;
+        this.loc_i = starti;
+        this.loc_j = startj;
+    }
+
 
 }

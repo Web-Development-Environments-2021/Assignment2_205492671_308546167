@@ -6,7 +6,6 @@
  - double key pressed cases in setting like "ArrowUp7"
  - write the about modal dialog decription ++++
  - new deisgn for the pac man board
- - lives for pac man - LIAD
  - game over at time=0 or lives=0 -LIAD
  - logo instead of header - should be written in the README
  - setting page along side the page
