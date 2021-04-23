@@ -1,5 +1,7 @@
 const black = "#000000";
 var pause_game = false;
+var end_game;
+
 var context;
 var refrashRatePackman = 100;
 var refrashRateGhosts = 300;
@@ -29,6 +31,9 @@ $(document).ready(function() {
 	context = canvas.getContext("2d");
 	scale = (canvas.height/(boardColLength));
 	$("#newGame").click(Start);
+	$("#endNewGame").click(showGameScreen);
+	$("#endToSetteings").click(showSettingScreen);
+
 	// Start();
 });
 
@@ -39,6 +44,7 @@ function showGameScreen(){
     $("#welcome").hide();
     $("#register").hide();
 	$("#settingScreen").hide();
+	$("#endGame").hide();
 	Start();
 }
 
@@ -64,6 +70,7 @@ function reciveSettings(up, down, left, right, food_num, big_food_color, mid_foo
 
 
 function Start() {
+	end_game = false;
 	score = 0;
 	start_time = new Date();
 	foods = [];
@@ -131,6 +138,8 @@ function Draw() {
 	lblScore.value = packman.get_Score();
 	lblTime.value = max_time - time_elapsed;
 	lblLives.value = packman.get_lives();
+	if (lblTime.value <= 0 || lblLives.value <= 0)
+		gameOver();
 	for (var i = 0; i < boardRowLength; i++) {
 		for (var j = 0; j < boardColLength; j++) {
 			if (board[i][j] == 4) {
@@ -216,6 +225,25 @@ function buildFood(){
 function pacmanLostLife(){
 	for (let index = 0; index < num_ghost; index++) {
 		ghosts[index].goToStart(ghost_starter_loc[index][0] ,ghost_starter_loc[index][1], board);	
+	}
+}
+
+function gameOver(){
+	if (end_game == false){
+		$("#endGame").show();
+		end_game = true;
+		$("#endheaderText").html("Game Over!");
+
+		if (lblLives.value <= 0){
+			$("#endGameText").html("Loser!");
+		}
+		else if (lblScore.value <= 100){
+			$("#endGameText").html("You are better than " + lblScore.value + " points!");
+		}
+		else{
+			$("#endGameText").html("Winner!!!");
+		}
+
 	}
 }
 

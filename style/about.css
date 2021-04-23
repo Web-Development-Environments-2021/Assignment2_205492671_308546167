@@ -24,3 +24,13 @@
 #about_table_header{
    background-color: #f4b41a;
 }
+
+#gameOverTable {
+   width: 100%;
+   border: 0px;
+}
+
+#GameOverTableHeader {
+   background-color: #f4b41a;
+   text-align: center;
+}

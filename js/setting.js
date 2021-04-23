@@ -43,6 +43,7 @@ function showSettingScreen(){
     $("#login").hide();
     $("#welcome").hide();
     $("#register").hide();
+    $("#gameScreen").hide();
 }
 
 
