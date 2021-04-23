@@ -1,3 +1,4 @@
+const black = "#000000";
 var context;
 var refrashRatePackman = 100;
 var refrashRateGhosts = 300;
@@ -6,6 +7,7 @@ var ghosts;
 var board;
 var foods;
 var food_colors = ["blue", "pink", "red"];
+var controlles = {"up": 38,"down": 40,"left": 37,"right": 39};
 var score;
 var pac_color;
 var start_time;
@@ -24,7 +26,7 @@ const ghosts_imges = ["./resources/pictures/ghost1.png", "./resources/pictures/g
 $(document).ready(function() {
 	context = canvas.getContext("2d");
 	scale = (canvas.height/(boardColLength));
-	Start();
+	// Start();
 });
 
 
@@ -35,6 +37,26 @@ function showGameScreen(){
     $("#register").hide();
 	$("#settingScreen").hide();
 	Start();
+}
+
+function reciveSettings(up, down, left, right, food_num, big_food_color, mid_food_color, small_food_color, monster_num, game_time){
+	controlles.up = up;
+	controlles.down = down;
+	controlles.right = right;
+	controlles.left = left;
+	if (food_num != "")
+		food_remain = food_num;
+	if (small_food_color != black)
+		food_colors[0] = small_food_color;
+	if (mid_food_color != black)
+		food_colors[1] = mid_food_color;
+	if (big_food_color != black)
+		food_colors[2] = big_food_color;
+	if (monster_num != "")
+		num_ghost = monster_num;
+	if (game_time != "")
+		max_time = game_time;
+
 }
 
 
@@ -49,22 +71,6 @@ function Start() {
 	boardColLength = board[0].length;
 	buildGhosts();
 	buildFood();
-	// for (var i = 0; i < boardRowLength; i++) {
-	// 	for (var j = 0; j < boardColLength; j++) {
-	// 		var randomNum = Math.random();
-	// 		if ((randomNum <= (1.0 * food_remain) / cnt) && board[i][j] != 4) {
-	// 			food_remain--;
-	// 			board[i][j] = 1;
-	// 		}
-	// 		cnt--;
-	// 	}
-	// }
-	
-	// while (food_remain > 0) {
-	// 	var emptyCell = findRandomEmptyCell(board);
-	// 	board[emptyCell[0]][emptyCell[1]] = 1;
-	// 	food_remain--;
-	// }
 
 	packman = new Packman(board, scale/12, -3*scale/12, scale/12);
 
@@ -99,19 +105,19 @@ function findRandomEmptyCell(board) {
 
 function GetKeyPressed() {
 	// up
-	if (keysDown[38]) {
+	if (keysDown[controlles["up"]]) {
 		return 1;
 	}
 	// down
-	if (keysDown[40]) {
+	if (keysDown[controlles["down"]]) {
 		return 2;
 	}
 	// left
-	if (keysDown[37]) {
+	if (keysDown[controlles["left"]]) {
 		return 3;
 	}
 	//right
-	if (keysDown[39]) {
+	if (keysDown[controlles["right"]]) {
 		return 4;
 	}
 }

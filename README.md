@@ -23,7 +23,6 @@
  - new game option - LIAD
  - new design for Time & score  
  - modal dialog -> click out of modal dialog should close the dialog - NAOR
- - To synchronize the random with the board setting -LIAD
  
 
  
