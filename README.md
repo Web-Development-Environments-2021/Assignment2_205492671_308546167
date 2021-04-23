@@ -3,7 +3,6 @@
  - fix autocomplete user name in login form.
  - hide gameScreen on pressing on other menu
  - sign out ->>> welcome
- - clear forms -NAOR
  - double key pressed cases in setting like "ArrowUp7"
  - write the about modal dialog decription ++++
  - new deisgn for the pac man board
