@@ -9,6 +9,8 @@ const db = [
 	}
 ];
 
+var onlineUser = "guest";
+
 
 function addToDB(userID, pass, fname, mail, birthDate){
     newUser = {

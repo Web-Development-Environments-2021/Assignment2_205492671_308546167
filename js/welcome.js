@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    $("#greeting").hide();
     showWelcomeScreen();
     $("#welcome_menu").click(function(){
         showWelcomeScreen();
