@@ -6,6 +6,7 @@ class Ghost{
         this.ghost_img.src = img_path; 
         this.ghost_color = "blue";
         board[starti][startj] = 3;
+        this.food = null;
     }
 
 
@@ -15,6 +16,25 @@ class Ghost{
     }
 
     moveChar(pac_i, pac_j, board){  
+        best_move = this.pickBestMove(board, pac_i, pac_j);
+
+        if (this.food != null)
+            board[this.loc_i][this.loc_j] = this.food;
+        else
+            board[this.loc_i][this.loc_j] = 0;
+        this.food = null;
+        this.loc_i = best_move.i;
+        this.loc_j = best_move.j;
+        if (board[this.loc_i][this.loc_j] instanceof Food)
+            this.food =  board[this.loc_i][this.loc_j];
+        board[this.loc_i][this.loc_j] = 3;
+    }
+
+    get_img(){
+        return this.ghost_img;
+    }
+
+    pickBestMove(board, pac_i, pac_j){
         let best_move = {"i": this.loc_i, "j" : this.loc_j, "distance": 1000};
         let man_dis;
         try{
@@ -42,13 +62,8 @@ class Ghost{
         catch(rangeError){
             console.log(rangeError);
         }
-        board[this.loc_i][this.loc_j] = 0;
-        this.loc_i = best_move.i;
-        this.loc_j = best_move.j;
-        board[this.loc_i][this.loc_j] = 3;
+    return best_move;
     }
 
-    get_img(){
-        return this.ghost_img;
-    }
+
 }
