@@ -9,7 +9,6 @@
  - game over at time=0 or lives=0 -LIAD
  - logo instead of header - should be written in the README
  - setting page along side the page
- - when pac man has been eaten, should be show in another palce on board -LIAD
  - The username  of the user that logged in' should be shown in the top right of the page. 
  - create a creature that moves randomly - LIAD
  - choose song 
