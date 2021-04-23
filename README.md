@@ -3,7 +3,6 @@
  - fix autocomplete user name in login form.
  - hide gameScreen on pressing on other menu
  - sign out ->>> welcome
- - if login unsuccessfull - write an alert to user - NAOR
  - clear forms -NAOR
  - double key pressed cases in setting like "ArrowUp7"
  - all styles in index.html should move to css files - NAOR

@@ -25,5 +25,8 @@ function loginSubmit(){
     if(verifyUser(values["Username"],values["Password"])){
         showSettingScreen();
     }
+    else {
+        alert("The username or password is incorrect");
+    }
 }
 
