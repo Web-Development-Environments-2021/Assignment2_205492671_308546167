@@ -28,6 +28,7 @@ const ghost_starter_loc = [[1,1], [1, 21], [18, 1], [18, 21]];
 $(document).ready(function() {
 	context = canvas.getContext("2d");
 	scale = (canvas.height/(boardColLength));
+	$("#newGame").click(Start);
 	// Start();
 });
 
@@ -64,9 +65,11 @@ function reciveSettings(up, down, left, right, food_num, big_food_color, mid_foo
 
 function Start() {
 	score = 0;
-	food_remain = 50;
 	start_time = new Date();
-
+	foods = [];
+	ghosts = [];
+	clearInterval(intervalPackman);
+	clearInterval(intervalGhosts);
 	board = GameBoard.createBoard();
 	boardRowLength = board.length;
 	boardColLength = board[0].length;
@@ -214,5 +217,5 @@ function pacmanLostLife(){
 	for (let index = 0; index < num_ghost; index++) {
 		ghosts[index].goToStart(ghost_starter_loc[index][0] ,ghost_starter_loc[index][1], board);	
 	}
-
 }
+

@@ -15,7 +15,6 @@
  - choose song 
  - bouns level
  - game over message
- - new game option - LIAD
  - new design for Time & score  
 
  
