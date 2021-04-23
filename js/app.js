@@ -22,6 +22,7 @@ var foodRadius;
 var num_ghost = 4;
 var food_remain = 50;
 const ghosts_imges = ["./resources/pictures/ghost1.png", "./resources/pictures/ghost2.png", "./resources/pictures/ghost3.png", "./resources/pictures/ghost4.png"]
+const ghost_starter_loc = [[1,1], [1, 21], [18, 1], [18, 21]];
 
 $(document).ready(function() {
 	context = canvas.getContext("2d");
@@ -184,8 +185,9 @@ function ghostMove(){
 function buildGhosts(){
 	ghosts = new Array();
 	for (let index = 0; index < num_ghost; index++) {
-		ghosts.push(new Ghost(board, ghosts_imges[index], 10 + index ,11,));	
-	} 
+		ghosts.push(new Ghost(board, ghosts_imges[index], ghost_starter_loc[index][0] ,ghost_starter_loc[index][1]));	
+	}
+	 
 }
 
 function buildFood(){

@@ -16,7 +16,7 @@ class Ghost{
     }
 
     moveChar(pac_i, pac_j, board){  
-        best_move = this.pickBestMove(board, pac_i, pac_j);
+        let best_move = this.pickBestMove(board, pac_i, pac_j);
 
         if (this.food != null)
             board[this.loc_i][this.loc_j] = this.food;

@@ -14,7 +14,6 @@
  - The username  of the user that logged in' should be shown in the top right of the page. 
  - create a creature that moves randomly - LIAD
  - choose song 
- - change the start location of ghosts. - LIAD
  - bouns level
  - game over message
  - new game option - LIAD
