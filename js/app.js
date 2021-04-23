@@ -1,4 +1,5 @@
 const black = "#000000";
+var pause_game = false;
 var context;
 var refrashRatePackman = 100;
 var refrashRateGhosts = 300;
@@ -27,6 +28,7 @@ const ghost_starter_loc = [[1,1], [1, 21], [18, 1], [18, 21]];
 $(document).ready(function() {
 	context = canvas.getContext("2d");
 	scale = (canvas.height/(boardColLength));
+	$("#newGame").click(Start);
 	// Start();
 });
 
@@ -63,10 +65,11 @@ function reciveSettings(up, down, left, right, food_num, big_food_color, mid_foo
 
 function Start() {
 	score = 0;
-	var cnt = 400;
-	food_remain = 50;
 	start_time = new Date();
-
+	foods = [];
+	ghosts = [];
+	clearInterval(intervalPackman);
+	clearInterval(intervalGhosts);
 	board = GameBoard.createBoard();
 	boardRowLength = board.length;
 	boardColLength = board[0].length;
@@ -127,6 +130,7 @@ function Draw() {
 	canvas.width = canvas.width; //clean board
 	lblScore.value = packman.get_Score();
 	lblTime.value = max_time - time_elapsed;
+	lblLives.value = packman.get_lives();
 	for (var i = 0; i < boardRowLength; i++) {
 		for (var j = 0; j < boardColLength; j++) {
 			if (board[i][j] == 4) {
@@ -152,6 +156,8 @@ function Draw() {
 }
 
 function UpdatePositionPackman() {
+	if (pause_game == true)
+		return;
 	packmanMove();
 	var currentTime = new Date();
 	time_elapsed = (currentTime - start_time) / 1000;
@@ -206,3 +212,10 @@ function buildFood(){
 	}
 
 }
+
+function pacmanLostLife(){
+	for (let index = 0; index < num_ghost; index++) {
+		ghosts[index].goToStart(ghost_starter_loc[index][0] ,ghost_starter_loc[index][1], board);	
+	}
+}
+

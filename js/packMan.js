@@ -6,12 +6,13 @@ class Packman{
         this.loc_i = starti;
         this.loc_j = startj;
         this.pac_color = "yellow";
-        board[starti][startj] = 2;
+        board[starti][startj] = this;
         this.direction = 0;
         this.eyeLocx = eyex;
         this.eyeLocy = eyey;
         this.eyeRadius = eyeR;
         this.score = 0;
+        this.lives = 5;
     }
 
 
@@ -77,7 +78,9 @@ class Packman{
             this.score += board[this.loc_i][this.loc_j].get_score();
             foods.delete(board[this.loc_i][this.loc_j]);
         }
-        board[this.loc_i][this.loc_j] = 2;
+        else if (board[this.loc_i][this.loc_j] == 3)
+            this.hurt();
+        board[this.loc_i][this.loc_j] = this;
     }
     
     get_i(){
@@ -89,4 +92,22 @@ class Packman{
     get_Score(){
         return this.score;
     }
+
+    get_lives(){
+        return this.lives;
+    }
+
+    hurt(){
+        this.lives--;
+        this.score += -10;
+        
+        let emptyCell = findRandomEmptyCell(board);
+        let starti = emptyCell[0];
+        let startj = emptyCell[1];        
+        this.loc_i = starti;
+        this.loc_j = startj;
+        pacmanLostLife();
+    }
+
+
 }
