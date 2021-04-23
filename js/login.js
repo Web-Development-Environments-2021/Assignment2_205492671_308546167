@@ -3,7 +3,7 @@ $(document).ready(function(){
     $("#login_button").click(showLoginScreen);
     $("#login_menu").click(showLoginScreen);
     $("#subLogin").click(loginSubmit);
-    $("#logOut_menu").click(logOut);
+    $("#logOut_menu").click(showLoginScreen);
 });
 
 
@@ -27,17 +27,14 @@ function loginSubmit(){
         onlineUser = values["Username"];
         showUsername();
         showSettingScreen();
+        $("#register_menu").hide();
+        $("#login_menu").hide();
+        $("#logOut_menu").show();
+        
     }
     else {
         alert("The username or password is incorrect");
     }
-}
-
-function logOut(){
-    $("#onlineUserText").hide();
-    onlineUser = null;
-    $("#onlineUserText").text("Online User: ");
-    showWelcomeScreen();
 }
 
 function showUsername(){
