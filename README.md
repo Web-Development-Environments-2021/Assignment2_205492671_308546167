@@ -19,7 +19,7 @@
  - game over message
  - new game option - LIAD
  - new design for Time & score  
- - modal dialog -> click out of modal dialog should close the dialog - NAOR
+
  
 
  
