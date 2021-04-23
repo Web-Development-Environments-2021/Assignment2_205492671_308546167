@@ -8,6 +8,7 @@ $(document).ready(function(){
 
 
 function showRegisterScreen(){
+    $("#registerForm")[0].reset();
     $("#register").show();
     $("#welcome").hide();
     $("#login").hide();
@@ -23,6 +24,5 @@ function registerSubmit(){
 
     addToDB(values["Username"],values["Password"],values["Fullname"],values["Email"],values["DateOfBirth"]);
     showLoginScreen();
-    
 }
 

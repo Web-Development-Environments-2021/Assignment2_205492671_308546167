@@ -38,6 +38,7 @@ function settingSubmit(){
 }
 
 function showSettingScreen(){
+    $("#settingForm")[0].reset();
 	$("#settingScreen").show();
     $("#login").hide();
     $("#welcome").hide();

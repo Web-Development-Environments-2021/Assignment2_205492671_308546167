@@ -15,3 +15,12 @@
    font-family: Verdana;
    font-size: 10pt;
 }
+
+#about_table {
+   width: 100%;
+   border: 0px;
+}
+
+#about_table_header{
+   background-color: #f4b41a;
+}

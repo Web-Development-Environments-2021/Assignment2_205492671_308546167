@@ -8,6 +8,7 @@ $(document).ready(function(){
 
 
 function showLoginScreen(){
+    $("#loginForm")[0].reset();
     $("#login").show();
     $("#welcome").hide();
     $("#register").hide();
@@ -24,6 +25,9 @@ function loginSubmit(){
     });
     if(verifyUser(values["Username"],values["Password"])){
         showSettingScreen();
+    }
+    else {
+        alert("The username or password is incorrect");
     }
 }
 
