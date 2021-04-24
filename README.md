@@ -6,9 +6,7 @@
  - setting page along side the page
  - choose song 
  - mute
- - bouns level
  - add pause button 
- - green pac man - to delete
  - setting validation
  - add hole/cave transport
  - lblTime.value <= 0  line 140 app.js

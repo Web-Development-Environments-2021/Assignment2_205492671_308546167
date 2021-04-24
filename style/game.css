@@ -35,7 +35,7 @@
   }
 
 
-  #newGame  {
+  #newGame, #pause_play_Btn  {
     position: relative;
     display: inline-block;
     padding: 10px 10px;
@@ -51,7 +51,7 @@
     letter-spacing: 4px
   }
   
-  #newGame:hover {
+  #newGame:hover, #pause_play_Btn:hover {
     background: #f4b41a;
     color: white;
     border-radius: 5px;

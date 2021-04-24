@@ -15,6 +15,7 @@ var start_time;
 var time_elapsed;
 var max_time = 100;
 var current_max_time;
+var suspension_start_time;
 var intervalPackman;
 var intervalGhosts;
 var boardRowLength = 20;
@@ -32,6 +33,7 @@ $(document).ready(function() {
 	$("#newGame").click(Start);
 	$("#endNewGame").click(showGameScreen);
 	$("#endToSettings").click(showSettingScreen);
+	$("#pause_play_Btn").click(pauseGame)
 });
 
 
@@ -244,5 +246,23 @@ function gameOver(){
 		}
 
 	}
+}
+
+function pauseGame(){
+	if(pause_game == false){
+		pause_game = true;
+		suspension_start_time = new Date();
+		$("#pause_play_Btn").html("Play");
+		clearInterval(intervalPackman);
+		clearInterval(intervalGhosts);
+	}
+	else{
+		pause_game = false;
+		current_max_time += (new Date()-suspension_start_time)/1000;
+		$("#pause_play_Btn").html("Pause");
+		intervalPackman = setInterval(UpdatePositionPackman, refrashRatePackman);
+		intervalGhosts = setInterval(UpdatePositionGhosts, refrashRateGhosts);
+	}
+
 }
 
