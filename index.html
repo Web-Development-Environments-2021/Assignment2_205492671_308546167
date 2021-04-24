@@ -40,16 +40,17 @@
 				<li id="about_menu"><a>About</a></li>
 				<li id="logOut_menu"><a>Log Out</a></li>
 				<img id="logo" src="resources/pictures/pacLogo.png">
+				<!-- <iframe src="https://giphy.com/embed/4hCJsNJ7zRcic" width="60" height="42" frameBorder="0"></iframe> -->
 			</ul>
 		</div>
 		<br>
-		<div id="onlineUserText">Online User: </div>
+		<iframe id="liveTheGameGifhy" src="https://giphy.com/embed/SYWI8fQoPpid2sjo6O" width="200" height="150" frameBorder="0" ></iframe>
+		
+		<div class="clip-text" id="onlineUserText">Online User: </div>
 		<div id="content">
 			<div id="welcome">
 				<button id="login_button"> Login </button>
 				<button id="register_button"> Register </button>
-
-				
 			</div> 
 
 			<div id="register" class="register-box">
@@ -199,40 +200,48 @@
 
 
 			<div id="gameScreen">
-				<div id="score" >
-					<label for="lblScore">SCORE:</label>
-					<input id="lblScore" type="text" />
-				</div>
-				<div id="time" >
-					<label for="lblTime">TIME:</label>
-					<input id="lblTime" type="text" />
-				</div>
-				<div id="lives" >
-					<label for="lbLlives">LIVES:</label>
-					<input id="lblLives" type="text" />
-				</div>
-				<button id="newGame"> newGame </button>
 
-				<section id="endGame" class="web_dialog">
-					<table id="gameOverTable" cellpadding="3" cellspacing="0">
+				<table id="gameInfoTable">
+					<tr>
+					  <th colspan="2">Properties</th>
+					</tr>
+					<tr id="score">
+					  <td><label for="lblScore">Score:</label></td>
+					  <td><input id="lblScore" type="text" size="4"/></td>
+					</tr>
+					<tr id="time" >
+					  <td><label for="lblTime">Time:</label></td>
+					  <td><input id="lblTime" type="text" size="4"/></td>
+					</tr>
+					<tr id="lives">
+						<td><label for="lbLlives">Lives:</label></td>
+						<td><input id="lblLives" type="text" size="4"/></td>
+					  </tr>
+				</table>
+				<button id="newGame"> New Game </button>
+
+				<section id="endGame">
+					<table id="gameOverTable" cellpadding="0" cellspacing="0">
 					   <tr id="GameOverTableHeader">
-						  <td colspan="2"><b id="endheaderText"></b></td>
+						  <th><b id="endheaderText"></b></th>
 					   </tr>
 					   <tr>
+						<td>
+							<br>
+						  <span id=endGameText></span><br>
+						</td>
+					 </tr>
+					 <tr>
+						<td>
+							 <button id="endToSettings"><b>Settings </b></button>
+						</td>
+					</tr>
+						<tr>
 						  <td>
-							 <button id="endToSetteings"><b>back to settings </b></button>
-						  </td>
-						  <td>
-							<button id="endNewGame"><b>new game </b></button>
+							<button id="endNewGame"><b>New game </b></button>
 						 </td>
 						 
 					   </tr>
-					   <tr>
-						  <td>
-							<span id=endGameText></span><br>
-						  </td>
-					   </tr>
-				 
 					</table>
 				 </section>
 
@@ -242,7 +251,7 @@
 			</div>
 		</div>
 		<footer>
-			<h6>2021 ©   Liad Oz & Naor Suban the KILLERS</h6>
+			<h6>2021 ©   Liad Oz & Naor Suban the KILLERS </h6>
 		</footer>
 	</body>
 </html>

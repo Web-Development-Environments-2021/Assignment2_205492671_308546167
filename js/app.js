@@ -9,7 +9,7 @@ var packman;
 var ghosts;
 var board;
 var foods;
-var food_colors = ["blue", "pink", "red"];
+var food_colors = ["#1ACFCE", "#F1C216", "#46D852"];
 var controlles = {"up": 38,"down": 40,"left": 37,"right": 39};
 var score;
 var pac_color;
@@ -32,7 +32,7 @@ $(document).ready(function() {
 	scale = (canvas.height/(boardColLength));
 	$("#newGame").click(Start);
 	$("#endNewGame").click(showGameScreen);
-	$("#endToSetteings").click(showSettingScreen);
+	$("#endToSettings").click(showSettingScreen);
 
 	// Start();
 });
@@ -148,7 +148,7 @@ function Draw() {
 				center.y = j * scale + scale/2;
 				context.beginPath();
 				context.rect(center.x - scale/2, center.y - scale/2, scale, scale);
-				context.fillStyle = "#42f5da"; //color
+				context.fillStyle = "orange"; //color
 				context.fill();
 			}
 		}

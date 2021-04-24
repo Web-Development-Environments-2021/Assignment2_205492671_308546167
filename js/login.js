@@ -3,7 +3,6 @@ $(document).ready(function(){
     $("#login_button").click(showLoginScreen);
     $("#login_menu").click(showLoginScreen);
     $("#subLogin").click(loginSubmit);
-    $("#logOut_menu").click(showLoginScreen);
 });
 
 
@@ -11,6 +10,7 @@ $(document).ready(function(){
 function showLoginScreen(){
     $("#loginForm")[0].reset();
     $("#login").show();
+    $("#liveTheGameGifhy").hide();
     $("#welcome").hide();
     $("#register").hide();
     $("#settingScreen").hide();
@@ -41,4 +41,6 @@ function showUsername(){
     $("#onlineUserText").show();
     $("#onlineUserText").append(onlineUser);
 }
+
+
 

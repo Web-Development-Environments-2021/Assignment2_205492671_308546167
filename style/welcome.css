@@ -45,4 +45,26 @@ body {
     background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
     background-color:#ffab23;
   }
- 
+
+
+
+  
+  #onlineUserText {
+    background: url(http://i.giphy.com/kgyLlpe3YCkmI.gif);
+    /* url(http://i.giphy.com/fsULJFFGv8X3G.gif); */
+    /* background: url(http://i.giphy.com/xTiTnGapnhwEXjeiT6.gif); */
+    /* k6paRc5GpQxKq2GwIq */
+    background-size: cover;
+    background-position: center;
+    
+    -webkit-background-clip: text;
+    color: transparent; 
+    width: 300px;
+    height: 100px;
+    box-sizing: border-box;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    line-height: 100px;
+    flex-shrink: 0;
+  }
