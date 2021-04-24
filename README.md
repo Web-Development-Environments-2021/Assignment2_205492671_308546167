@@ -5,10 +5,14 @@
  - logo instead of header - should be written in the README
  - setting page along side the page
  - choose song 
+ - mute
  - bouns level
- - design the Online user
  - add pause button 
- - design the winner/looser modal
+ - green pac man - to delete
+ - setting validation
+ - add hole/cave transport
+ - lblTime.value <= 0  line 140 app.js
+ - if time <= so put 0>
 
 
  

@@ -74,16 +74,20 @@ class Packman{
             this.eyeLocx = scale/12;
             this.eyeLocy = -3*scale/12;
         }
-        if (board[this.loc_i][this.loc_j] instanceof Food) {
-            this.score += board[this.loc_i][this.loc_j].get_score();
-            foods.delete(board[this.loc_i][this.loc_j]);
+        // if (board[this.loc_i][this.loc_j] instanceof Food) {
+        //     this.score += board[this.loc_i][this.loc_j].get_score();
+        //     foods.delete(board[this.loc_i][this.loc_j]);
+        // }
+        // else if (board[this.loc_i][this.loc_j] instanceof MovingScore){
+        //     this.score += board[this.loc_i][this.loc_j].get_Score();
+        //     moving_score = null;
+        // }
+        // else if (board[this.loc_i][this.loc_j] == 3)
+        //     this.hurt();
+
+        if(board[this.loc_i][this.loc_j] !=0){
+            board[this.loc_i][this.loc_j].interactWithPacman(this);
         }
-        else if (board[this.loc_i][this.loc_j] instanceof MovingScore){
-            this.score += board[this.loc_i][this.loc_j].get_Score();
-            moving_score = null;
-        }
-        else if (board[this.loc_i][this.loc_j] == 3)
-            this.hurt();
         board[this.loc_i][this.loc_j] = this;
     }
     
@@ -111,6 +115,10 @@ class Packman{
         this.loc_i = starti;
         this.loc_j = startj;
         pacmanLostLife();
+    }
+
+    incrementScore(score){
+        this.score += score;
     }
 
 

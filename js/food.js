@@ -24,4 +24,10 @@ class Food{
         context.fillStyle = this.point_color; //color
         context.fill();
     }
+
+    interactWithPacman(pacman){
+        pacman.incrementScore(this.score);
+        foods.delete(board[this.loc_i][this.loc_j]);
+
+    }
 }

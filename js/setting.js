@@ -64,8 +64,8 @@ function randomSetting() {
     $("#bigAppleColor").val("#1ACFCE");
     $("#medAppleColor").val("#F1C216");
     $("#smallAppleColor").val("#46D852");
-    $("#gameTime").val(getRndInteger(30,120));
-    $("#nMonsters").val(getRndInteger(1,5));
+    $("#gameTime").val(getRndInteger(60,90));
+    $("#nMonsters").val(getRndInteger(1,4));
 }
 
 function getRndInteger(min, max) {

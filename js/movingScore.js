@@ -38,21 +38,29 @@ class MovingScore{
 
     pickRandomMove(board){
         let possible_moves = [];
-        if (board[this.loc_i+1][this.loc_j] != 4 && board[this.loc_i+1][this.loc_j] != 3){
+        if (board[this.loc_i+1][this.loc_j] != 4 && !(board[this.loc_i+1][this.loc_j] instanceof Ghost)){
             possible_moves.push({"i": this.loc_i+1, "j" : this.loc_j});
         }
-        if (board[this.loc_i-1][this.loc_j] != 4 && board[this.loc_i-1][this.loc_j] != 3){
+        if (board[this.loc_i-1][this.loc_j] != 4 && !(board[this.loc_i-1][this.loc_j] instanceof Ghost)){
             possible_moves.push({"i": this.loc_i-1, "j" : this.loc_j});
         }
-        if (board[this.loc_i][this.loc_j+1] != 4 && board[this.loc_i][this.loc_j+1] != 3){
+        if (board[this.loc_i][this.loc_j+1] != 4 && !(board[this.loc_i][this.loc_j+1] instanceof Ghost)){
             possible_moves.push({"i": this.loc_i, "j" : this.loc_j+1});
         }
-        if (board[this.loc_i][this.loc_j-1] != 4 && board[this.loc_i][this.loc_j-1] != 3){
+        if (board[this.loc_i][this.loc_j-1] != 4 && !(board[this.loc_i][this.loc_j-1] instanceof Ghost)){
             possible_moves.push({"i": this.loc_i, "j" : this.loc_j-1});
         }
         let random_index = Math.floor(Math.random() * (possible_moves.length-0) + 0);
         return 	possible_moves[random_index];
 
+    }
+
+    interactWithPacman(pacman){
+        if(this.food != null){
+            (this.food).interactWithPacman();
+        }
+        pacman.incrementScore(this.score);
+        moving_score = null;
     }
 
 }

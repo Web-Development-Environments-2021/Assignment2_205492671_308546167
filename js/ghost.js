@@ -5,7 +5,7 @@ class Ghost{
         this.ghost_img = new Image();
         this.ghost_img.src = img_path; 
         this.ghost_color = "blue";
-        board[starti][startj] = 3;
+        board[starti][startj] = this;
         this.food = null;
     }
 
@@ -29,7 +29,7 @@ class Ghost{
             this.food =  board[this.loc_i][this.loc_j];
         else if (board[this.loc_i][this.loc_j] instanceof Packman)
             board[this.loc_i][this.loc_j].hurt();
-        board[this.loc_i][this.loc_j] = 3;
+        board[this.loc_i][this.loc_j] = this;
     }
 
     get_img(){
@@ -40,22 +40,22 @@ class Ghost{
         let best_move = {"i": this.loc_i, "j" : this.loc_j, "distance": 1000};
         let man_dis;
         try{
-            if (board[this.loc_i+1][this.loc_j] != 4 && board[this.loc_i+1][this.loc_j] != 3){
+            if (board[this.loc_i+1][this.loc_j] != 4 && !(board[this.loc_i+1][this.loc_j] instanceof Ghost)){
                 man_dis = Math.abs(this.loc_i+1-pac_i)+Math.abs(this.loc_j-pac_j);
                 if (man_dis<best_move.distance)
                     best_move = {"i": this.loc_i+1, "j" : this.loc_j, "distance": man_dis};
             }
-            if (board[this.loc_i-1][this.loc_j] != 4 && board[this.loc_i-1][this.loc_j] != 3){
+            if (board[this.loc_i-1][this.loc_j] != 4 && !(board[this.loc_i+1][this.loc_j] instanceof Ghost)){
                 man_dis = Math.abs(this.loc_i-1-pac_i)+Math.abs(this.loc_j-pac_j)
                 if (man_dis<best_move.distance)
                     best_move = {"i": this.loc_i-1, "j" : this.loc_j, "distance": man_dis};
             }
-            if (board[this.loc_i][this.loc_j+1] != 4 && board[this.loc_i][this.loc_j+1] != 3){
+            if (board[this.loc_i][this.loc_j+1] != 4 && !(board[this.loc_i+1][this.loc_j] instanceof Ghost)){
                 man_dis = Math.abs(this.loc_i-pac_i)+Math.abs(this.loc_j+1-pac_j);
                 if (man_dis<best_move.distance)
                     best_move = {"i": this.loc_i, "j" : this.loc_j+1, "distance": man_dis};
             }
-            if (board[this.loc_i][this.loc_j-1] != 4 && board[this.loc_i][this.loc_j-1] != 3){
+            if (board[this.loc_i][this.loc_j-1] != 4 && !(board[this.loc_i+1][this.loc_j] instanceof Ghost)){
                 man_dis = Math.abs(this.loc_i+1-pac_i)+Math.abs(this.loc_j-1-pac_j);
                 if (man_dis<best_move.distance)
                     best_move = {"i": this.loc_i, "j" : this.loc_j-1, "distance": man_dis};
@@ -74,6 +74,10 @@ class Ghost{
         board[this.loc_i][this.loc_j] = 0;
         this.loc_i = starti;
         this.loc_j = startj;
+    }
+
+    interactWithPacman(pacman){
+        pacman.hurt();
     }
 
 

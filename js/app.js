@@ -33,8 +33,6 @@ $(document).ready(function() {
 	$("#newGame").click(Start);
 	$("#endNewGame").click(showGameScreen);
 	$("#endToSettings").click(showSettingScreen);
-
-	// Start();
 });
 
 
@@ -173,15 +171,8 @@ function UpdatePositionPackman() {
 	packmanMove();
 	var currentTime = new Date();
 	time_elapsed = (currentTime - start_time) / 1000;
-	if (score >= 20 && time_elapsed <= 10) {
-		pac_color = "green";
-	}
-	if (score == 50) {
-		window.clearInterval(interval);
-		window.alert("Game completed");
-	} else {
-		Draw();
-	}
+	Draw();
+	
 }
 
 function UpdatePositionGhosts() {
