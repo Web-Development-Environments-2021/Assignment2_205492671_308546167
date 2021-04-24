@@ -3,6 +3,7 @@ $(document).ready(function(){
     $("#welcome_menu").click(function(){
         showWelcomeScreen();
     }); 
+    $("#logOut_menu").click(showWelcomeScreen);
 });
 
 

@@ -3,7 +3,6 @@ $(document).ready(function(){
     $("#login_button").click(showLoginScreen);
     $("#login_menu").click(showLoginScreen);
     $("#subLogin").click(loginSubmit);
-    $("#logOut_menu").click(showLoginScreen);
 });
 
 
@@ -41,4 +40,6 @@ function showUsername(){
     $("#onlineUserText").show();
     $("#onlineUserText").append(onlineUser);
 }
+
+
 
