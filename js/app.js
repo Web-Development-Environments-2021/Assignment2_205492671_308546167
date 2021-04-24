@@ -11,11 +11,10 @@ var board;
 var foods;
 var food_colors = ["#1ACFCE", "#F1C216", "#46D852"];
 var controlles = {"up": 38,"down": 40,"left": 37,"right": 39};
-var score;
-var pac_color;
 var start_time;
 var time_elapsed;
 var max_time = 100;
+var current_max_time;
 var intervalPackman;
 var intervalGhosts;
 var boardRowLength = 20;
@@ -69,7 +68,7 @@ function reciveSettings(up, down, left, right, food_num, big_food_color, mid_foo
 
 function Start() {
 	end_game = false;
-	score = 0;
+	current_max_time = max_time;
 	start_time = new Date();
 	foods = [];
 	ghosts = [];
@@ -134,7 +133,7 @@ function GetKeyPressed() {
 function Draw() {
 	canvas.width = canvas.width; //clean board
 	lblScore.value = packman.get_Score();
-	lblTime.value = max_time - time_elapsed;
+	lblTime.value = current_max_time - time_elapsed;
 	lblLives.value = packman.get_lives();
 	if (lblTime.value <= 0 || lblLives.value <= 0)
 		gameOver();
@@ -215,6 +214,8 @@ function buildFood(){
 		foods.add(new BigFood(board, food_colors[2]));
 	}
 	moving_score = new MovingScore(board, "./resources/pictures/cherry.png");
+	foods.add(new FoodLife(board,"./resources/pictures/heart.png"));
+	foods.add(new HourGlassFood(board,"./resources/pictures/clock.png",10));
 
 }
 

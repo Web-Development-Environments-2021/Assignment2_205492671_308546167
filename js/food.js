@@ -27,7 +27,7 @@ class Food{
 
     interactWithPacman(pacman){
         pacman.incrementScore(this.score);
-        foods.delete(board[this.loc_i][this.loc_j]);
+        foods.delete(this);
 
     }
 }

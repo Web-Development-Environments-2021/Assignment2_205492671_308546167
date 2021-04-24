@@ -121,5 +121,9 @@ class Packman{
         this.score += score;
     }
 
+    incrementLife(amount){
+        this.lives+= amount;
+    }
+
 
 }
