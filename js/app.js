@@ -1,7 +1,7 @@
 const black = "#000000";
 var pause_game = false;
 var end_game;
-
+var moving_score;
 var context;
 var refrashRatePackman = 100;
 var refrashRateGhosts = 300;
@@ -158,6 +158,9 @@ function Draw() {
 		food.draw(context, scale);
 	});
 	
+	if (moving_score != null)
+		moving_score.draw(context, scale);
+
 	ghosts.forEach(ghost => {
 		ghost.draw(context, scale);
 	});
@@ -183,6 +186,7 @@ function UpdatePositionPackman() {
 
 function UpdatePositionGhosts() {
 	ghostMove();
+	moving_score.moveChar(board);
 	Draw();
 }
 
@@ -219,6 +223,7 @@ function buildFood(){
 	for (let index = 0; index < num_big_food; index++) {
 		foods.add(new BigFood(board, food_colors[2]));
 	}
+	moving_score = new MovingScore(board, "./resources/pictures/cherry.png");
 
 }
 
@@ -230,6 +235,8 @@ function pacmanLostLife(){
 
 function gameOver(){
 	if (end_game == false){
+		clearInterval(intervalPackman);
+		clearInterval(intervalGhosts);
 		$("#endGame").show();
 		end_game = true;
 		$("#endheaderText").html("Game Over!");

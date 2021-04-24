@@ -78,6 +78,10 @@ class Packman{
             this.score += board[this.loc_i][this.loc_j].get_score();
             foods.delete(board[this.loc_i][this.loc_j]);
         }
+        else if (board[this.loc_i][this.loc_j] instanceof MovingScore){
+            this.score += board[this.loc_i][this.loc_j].get_Score();
+            moving_score = null;
+        }
         else if (board[this.loc_i][this.loc_j] == 3)
             this.hurt();
         board[this.loc_i][this.loc_j] = this;
