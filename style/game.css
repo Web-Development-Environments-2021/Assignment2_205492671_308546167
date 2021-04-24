@@ -35,7 +35,7 @@
   }
 
 
-  #newGame {
+  #newGame  {
     position: relative;
     display: inline-block;
     padding: 10px 10px;
@@ -60,5 +60,70 @@
                 0 0 50px #f4b41a,
                 0 0 100px #f4b41a;
   }
+
+  #endToSettings, #endNewGame  {
+    position: relative;
+    display: inline-block;
+    padding: 10px 10px;
+    color: #f4b41a;
+    background-color: black;
+    border-color: goldenrod;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px;
+    width: 150px;
+    height: 80px;
+  }
+  
+  #endToSettings:hover, #endNewGame:hover {
+    background: #f4b41a;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #f4b41a,
+                0 0 25px #f4b41a,
+                0 0 50px #f4b41a,
+                0 0 100px #f4b41a;
+  }
+ 
+  #endGame
+{
+   display: none;
+   position: fixed;
+   width: 380px;
+   height: 300px;
+   top: 50%;
+   left: 50%;
+   margin-left: -190px;
+   margin-top: -100px;
+   background-color: #fffde7;
+   border: 2px solid black;
+   padding: 0px;
+   z-index: 102;
+   font-family: Verdana;
+   font-size: 10pt;
+}
+
+
+  #gameOverTable {
+    width: 100%;
+    border: 0px;
+    background-color: #fffde7;
+    text-align: center;
+ }
+ 
+ #GameOverTableHeader {
+    background-color: #f4b41a;
+    text-align: center;
+ }
+
+ #endheaderText{
+     font-size: larger;
+ }
+
+
 
  

@@ -220,26 +220,28 @@
 				</table>
 				<button id="newGame"> New Game </button>
 
-				<section id="endGame" class="web_dialog">
-					<table id="gameOverTable" cellpadding="3" cellspacing="0">
+				<section id="endGame">
+					<table id="gameOverTable" cellpadding="0" cellspacing="0">
 					   <tr id="GameOverTableHeader">
-						  <td colspan="2"><b id="endheaderText"></b></td>
+						  <th><b id="endheaderText"></b></th>
 					   </tr>
 					   <tr>
+						<td>
+							<br>
+						  <span id=endGameText></span><br>
+						</td>
+					 </tr>
+					 <tr>
+						<td>
+							 <button id="endToSettings"><b>Settings </b></button>
+						</td>
+					</tr>
+						<tr>
 						  <td>
-							 <button id="endToSetteings"><b>back to settings </b></button>
-						  </td>
-						  <td>
-							<button id="endNewGame"><b>new game </b></button>
+							<button id="endNewGame"><b>New game </b></button>
 						 </td>
 						 
 					   </tr>
-					   <tr>
-						  <td>
-							<span id=endGameText></span><br>
-						  </td>
-					   </tr>
-				 
 					</table>
 				 </section>
 

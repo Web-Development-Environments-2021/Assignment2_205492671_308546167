@@ -32,7 +32,7 @@ $(document).ready(function() {
 	scale = (canvas.height/(boardColLength));
 	$("#newGame").click(Start);
 	$("#endNewGame").click(showGameScreen);
-	$("#endToSetteings").click(showSettingScreen);
+	$("#endToSettings").click(showSettingScreen);
 
 	// Start();
 });
