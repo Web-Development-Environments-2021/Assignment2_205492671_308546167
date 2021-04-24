@@ -1,10 +1,37 @@
 #canvas{
-    left: 520px;
-    top: 200px;
+    left: 500px;
+    top: 15%;
+    bottom:30%;
+    width: 80%;
+    height: 80%;
     position: fixed;
-
-}
-
-#game{
     background-color: black;
+
 }
+
+
+
+#gameInfoTable {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    background-color: #f4b41a;
+  }
+  
+  #gameInfoTable td, #gameInfoTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #gameInfoTable tr:nth-child{background-color: white;}
+  
+  #gameInfoTable tr:hover {background-color: goldenrod;}
+  
+  #gameInfoTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: black;
+    color: white;
+  }
+
+ 

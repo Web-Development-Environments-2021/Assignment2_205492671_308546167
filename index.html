@@ -199,18 +199,47 @@
 
 
 			<div id="gameScreen">
-				<div id="score" >
-					<label for="lblScore">SCORE:</label>
-					<input id="lblScore" type="text" />
-				</div>
-				<div id="time" >
-					<label for="lblTime">TIME:</label>
-					<input id="lblTime" type="text" />
-				</div>
-				<div id="lives" >
-					<label for="lbLlives">LIVES:</label>
-					<input id="lblLives" type="text" />
-				</div>
+
+				<table id="gameInfoTable">
+					<tr>
+					  <th colspan="2">Properties</th>
+					</tr>
+					<tr id="score">
+					  <td><label for="lblScore">Score:</label></td>
+					  <td><input id="lblScore" type="text" size="4"/></td>
+					</tr>
+					<tr id="time" >
+					  <td><label for="lblTime">Time:</label></td>
+					  <td><input id="lblTime" type="text" size="4"/></td>
+					</tr>
+					<tr id="lives">
+						<td><label for="lbLlives">Lives:</label></td>
+						<td><input id="lblLives" type="text" size="4"/></td>
+					  </tr>
+				</table>
+
+				<!-- <table id=gameInfoTable>
+					<tbody>
+						<tr id="score" >
+							<th>
+								<label for="lblScore">SCORE:</label>
+								<input id="lblScore" type="text" />
+							</th>
+						</tr>
+						<tr id="time" >
+							<th>
+								<label for="lblTime">TIME:</label>
+								<input id="lblTime" type="text"/>
+							</th>
+						</tr>
+						<tr id="lives" >
+							<th>
+								<label for="lbLlives">LIVES:</label>
+								<input id="lblLives" type="text" />
+							</th>
+						</tr>
+					</tbody>
+				</table> -->
 				<button id="newGame"> newGame </button>
 
 				<section id="endGame" class="web_dialog">
