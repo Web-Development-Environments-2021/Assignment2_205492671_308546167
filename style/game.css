@@ -34,4 +34,31 @@
     color: white;
   }
 
+
+  #newGame {
+    position: relative;
+    display: inline-block;
+    padding: 10px 15px;
+    color: #f4b41a;
+    background-color: transparent;
+    border-color: white;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+  }
+  
+  #newGame:hover {
+    background: #f4b41a;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #f4b41a,
+                0 0 25px #f4b41a,
+                0 0 50px #f4b41a,
+                0 0 100px #f4b41a;
+  }
+
  
