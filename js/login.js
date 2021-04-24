@@ -10,6 +10,7 @@ $(document).ready(function(){
 function showLoginScreen(){
     $("#loginForm")[0].reset();
     $("#login").show();
+    $("#liveTheGameGifhy").hide();
     $("#welcome").hide();
     $("#register").hide();
     $("#settingScreen").hide();

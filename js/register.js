@@ -10,6 +10,7 @@ $(document).ready(function(){
 function showRegisterScreen(){
     $("#registerForm")[0].reset();
     $("#register").show();
+    $("#liveTheGameGifhy").hide();
     $("#welcome").hide();
     $("#login").hide();
     $("#settingScreen").hide();

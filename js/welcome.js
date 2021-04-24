@@ -9,6 +9,7 @@ $(document).ready(function(){
 
 function showWelcomeScreen(){
     $("#welcome").show();
+    $("#liveTheGameGifhy").show();
     $("#logOut_menu").hide();
     $("#register").hide();
     $("#login").hide();
