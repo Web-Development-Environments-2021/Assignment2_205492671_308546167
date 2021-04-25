@@ -3,7 +3,7 @@ var pause_game = false;
 var end_game;
 var moving_score;
 var context;
-var refrashRatePackman = 100;
+var refrashRatePackman = 120;
 var refrashRateGhosts = 300;
 var packman;
 var ghosts;
@@ -265,5 +265,16 @@ function pauseGame(){
 		intervalGhosts = setInterval(UpdatePositionGhosts, refrashRateGhosts);
 	}
 
+}
+
+function isValidMove(board,i,j){
+	if(i<0 || i>=boardRowLength || j<0 || j>=boardColLength){
+		return false; 
+	}
+	if(board[i][j] == 4 || (board[i][j] instanceof Ghost)){
+		return false;
+	}
+
+	return true;
 }
 

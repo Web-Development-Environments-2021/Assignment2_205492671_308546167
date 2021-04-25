@@ -39,22 +39,22 @@ class Ghost{
     pickBestMove(board, pac_i, pac_j){
         let best_move = {"i": this.loc_i, "j" : this.loc_j, "distance": 1000};
         let man_dis;
-        if(this.isValidMove(board,this.loc_i+1,this.loc_j)){
+        if(isValidMove(board,this.loc_i+1,this.loc_j)){
             man_dis = Math.abs(this.loc_i+1-pac_i)+Math.abs(this.loc_j-pac_j);
             if (man_dis<best_move.distance)
                 best_move = {"i": this.loc_i+1, "j" : this.loc_j, "distance": man_dis};
         }
-        if(this.isValidMove(board,this.loc_i-1,this.loc_j)){
+        if(isValidMove(board,this.loc_i-1,this.loc_j)){
             man_dis = Math.abs(this.loc_i-1-pac_i)+Math.abs(this.loc_j-pac_j)
             if (man_dis<best_move.distance)
                 best_move = {"i": this.loc_i-1, "j" : this.loc_j, "distance": man_dis};
         }
-        if(this.isValidMove(board,this.loc_i,this.loc_j+1)){
+        if(isValidMove(board,this.loc_i,this.loc_j+1)){
             man_dis = Math.abs(this.loc_i-pac_i)+Math.abs(this.loc_j+1-pac_j);
             if (man_dis<best_move.distance)
                 best_move = {"i": this.loc_i, "j" : this.loc_j+1, "distance": man_dis};
         }
-        if(this.isValidMove(board,this.loc_i,this.loc_j-1)){
+        if(isValidMove(board,this.loc_i,this.loc_j-1)){
             man_dis = Math.abs(this.loc_i+1-pac_i)+Math.abs(this.loc_j-1-pac_j);
             if (man_dis<best_move.distance)
                 best_move = {"i": this.loc_i, "j" : this.loc_j-1, "distance": man_dis};
@@ -77,16 +77,6 @@ class Ghost{
         pacman.hurt();
     }
 
-    isValidMove(board,i,j){
-        if(i<0 || i>=boardRowLength || j<0 || j>=boardColLength){
-            return false; 
-        }
-        if(board[i][j] == 4 || (board[i][j] instanceof Ghost)){
-            return false;
-        }
-
-        return true;
-    }
 
 
 }
