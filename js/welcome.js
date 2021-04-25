@@ -18,6 +18,7 @@ function showWelcomeScreen(){
     $("#onlineUserText").hide();
     onlineUser = null;
     $("#onlineUserText").text("Online User: ");
+    audio.pause();
    }
 
 

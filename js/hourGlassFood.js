@@ -4,6 +4,7 @@ class HourGlassFood extends Food{
         this.hourGlassImg = new Image();
         this.hourGlassImg.src = img_path;
         this.bounsTime = bounsTime;
+        this.yupieAudio = new Audio("./resources/songs/yupie.mp3");
     }
 
     draw(context, scale){
@@ -11,6 +12,7 @@ class HourGlassFood extends Food{
     }
 
     interactWithPacman(pacman){
+        this.yupieAudio.play();
         current_max_time += this.bounsTime;
         foods.delete(this);
 

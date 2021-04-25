@@ -24,6 +24,9 @@ var scale = 80;
 var foodRadius;
 var num_ghost = 4;
 var food_remain = 50;
+var mute=false;
+var audio = new Audio("./resources/songs/song.mp3");
+var hurtAudio = new Audio("./resources/songs/pacmanHurt.mp3");
 const ghosts_imges = ["./resources/pictures/ghost1.png", "./resources/pictures/ghost2.png", "./resources/pictures/ghost3.png", "./resources/pictures/ghost4.png"]
 const ghost_starter_loc = [[1,1], [1, 21], [18, 1], [18, 21]];
 
@@ -33,7 +36,8 @@ $(document).ready(function() {
 	$("#newGame").click(Start);
 	$("#endNewGame").click(showGameScreen);
 	$("#endToSettings").click(showSettingScreen);
-	$("#pause_play_Btn").click(pauseGame)
+	$("#pause_play_Btn").click(pauseGame);
+	$("#mute_Btn").click(muteAudio);
 });
 
 
@@ -69,6 +73,8 @@ function reciveSettings(up, down, left, right, food_num, big_food_color, mid_foo
 
 
 function Start() {
+	audio.load();
+	audio.play();
 	end_game = false;
 	current_max_time = max_time;
 	start_time = new Date();
@@ -222,6 +228,7 @@ function buildFood(){
 }
 
 function pacmanLostLife(){
+	hurtAudio.play();
 	for (let index = 0; index < num_ghost; index++) {
 		ghosts[index].goToStart(ghost_starter_loc[index][0] ,ghost_starter_loc[index][1], board);	
 	}
@@ -252,12 +259,14 @@ function gameOver(){
 function pauseGame(){
 	if(pause_game == false){
 		pause_game = true;
+		audio.pause();
 		suspension_start_time = new Date();
 		$("#pause_play_Btn").html("Play");
 		clearInterval(intervalPackman);
 		clearInterval(intervalGhosts);
 	}
 	else{
+		audio.play();
 		pause_game = false;
 		current_max_time += (new Date()-suspension_start_time)/1000;
 		$("#pause_play_Btn").html("Pause");
@@ -265,6 +274,19 @@ function pauseGame(){
 		intervalGhosts = setInterval(UpdatePositionGhosts, refrashRateGhosts);
 	}
 
+}
+
+function muteAudio(){
+	if(mute == false){
+		mute = true;
+		audio.pause();
+		$("#mute_Btn").html("Unmute");
+	}
+	else{
+		mute = false;
+		audio.play();
+		$("#mute_Btn").html("Mute");
+	}
 }
 
 function isValidMove(board,i,j){

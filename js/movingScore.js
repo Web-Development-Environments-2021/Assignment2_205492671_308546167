@@ -10,6 +10,7 @@ class MovingScore{
         board[starti][startj] = this;
         this.score = 50;
         this.food = null;
+        this.yupieAudio = new Audio("./resources/songs/yupie.mp3");
     }
 
 
@@ -58,6 +59,7 @@ class MovingScore{
     }
 
     interactWithPacman(pacman){
+        this.yupieAudio.play();
         if(this.food != null){
             (this.food).interactWithPacman();
         }

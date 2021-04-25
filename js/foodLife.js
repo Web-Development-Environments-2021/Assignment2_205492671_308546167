@@ -3,6 +3,7 @@ class FoodLife extends Food{
         super(board, null);
         this.foodLifeImg = new Image();
         this.foodLifeImg.src = img_path; 
+        this.yupieAudio = new Audio("./resources/songs/yupie.mp3");
     }
 
     draw(context, scale){
@@ -10,6 +11,7 @@ class FoodLife extends Food{
     }
 
     interactWithPacman(pacman){
+        this.yupieAudio.play();
         pacman.incrementLife(1);
         foods.delete(this);
 

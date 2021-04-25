@@ -35,8 +35,9 @@ class Packman{
     moveChar(x, board, foods){
         board[this.loc_i][this.loc_j] = 0;
         if (x == 1) {
-            if (this.loc_j > 0 && board[this.loc_i][this.loc_j - 1] != 4) {
+            if (board[this.loc_i][this.loc_j - 1] != 4) {
                 this.loc_j--;
+                
             }
             // twist packman
             this.direction = 3
@@ -45,7 +46,7 @@ class Packman{
             this.eyeLocy = -1*scale/12;
         }
         if (x == 2) {
-            if (this.loc_j < boardColLength-1 && board[this.loc_i][this.loc_j + 1] != 4) {
+            if (board[this.loc_i][this.loc_j + 1] != 4) {
                 this.loc_j++;
             }
             // twist packman
@@ -74,16 +75,13 @@ class Packman{
             this.eyeLocx = scale/12;
             this.eyeLocy = -3*scale/12;
         }
-        // if (board[this.loc_i][this.loc_j] instanceof Food) {
-        //     this.score += board[this.loc_i][this.loc_j].get_score();
-        //     foods.delete(board[this.loc_i][this.loc_j]);
-        // }
-        // else if (board[this.loc_i][this.loc_j] instanceof MovingScore){
-        //     this.score += board[this.loc_i][this.loc_j].get_Score();
-        //     moving_score = null;
-        // }
-        // else if (board[this.loc_i][this.loc_j] == 3)
-        //     this.hurt();
+        if(this.loc_i==0 && x==3) //moving from side to side
+        {
+            this.loc_i=19;
+        }
+        if(this.loc_i==19 && x==4){
+            this.loc_i=0;
+        }
 
         if(board[this.loc_i][this.loc_j] !=0){
             board[this.loc_i][this.loc_j].interactWithPacman(this);

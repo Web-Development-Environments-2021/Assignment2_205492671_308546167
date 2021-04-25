@@ -40,7 +40,7 @@
   }
 
 
-  #newGame, #pause_play_Btn  {
+  #newGame, #pause_play_Btn , #mute_Btn   {
     position: relative;
     display: inline-block;
     padding: 10px 10px;
@@ -57,7 +57,7 @@
     letter-spacing: 4px
   }
   
-  #newGame:hover, #pause_play_Btn:hover {
+  #newGame:hover, #pause_play_Btn:hover , #mute_Btn:hover{
     /* background: #3e424b ;
     color: white; */
     border-radius: 5px;
@@ -67,7 +67,7 @@
                 0 0 100px #3e424b ;
   }
 
-  #endToSettings, #endNewGame  {
+  #endToSettings, #endNewGame{
     position: relative;
     display: inline-block;
     padding: 10px 10px;
