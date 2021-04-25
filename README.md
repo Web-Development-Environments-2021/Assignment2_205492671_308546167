@@ -10,7 +10,7 @@
  - setting validation
  - add hole/cave transport
  - lblTime.value <= 0  line 140 app.js
- - if time <= so put 0>
+ 
 
 
  

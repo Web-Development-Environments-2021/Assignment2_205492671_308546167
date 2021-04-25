@@ -231,6 +231,7 @@ function gameOver(){
 	if (end_game == false){
 		clearInterval(intervalPackman);
 		clearInterval(intervalGhosts);
+		lblTime.value =0 ; //To present time =0 in game over and not -0.0007..
 		$("#endGame").show();
 		end_game = true;
 		$("#endheaderText").html("Game Over!");
