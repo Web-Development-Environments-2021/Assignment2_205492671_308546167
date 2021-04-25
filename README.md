@@ -6,8 +6,6 @@
  - setting page along side the page
  - choose song 
  - mute
- - add pause button 
- - setting validation
  - add hole/cave transport
  - lblTime.value <= 0  line 140 app.js
  

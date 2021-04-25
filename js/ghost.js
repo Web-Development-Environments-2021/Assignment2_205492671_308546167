@@ -45,17 +45,17 @@ class Ghost{
                 if (man_dis<best_move.distance)
                     best_move = {"i": this.loc_i+1, "j" : this.loc_j, "distance": man_dis};
             }
-            if (board[this.loc_i-1][this.loc_j] != 4 && !(board[this.loc_i+1][this.loc_j] instanceof Ghost)){
+            if (board[this.loc_i-1][this.loc_j] != 4 && !(board[this.loc_i-1][this.loc_j] instanceof Ghost)){
                 man_dis = Math.abs(this.loc_i-1-pac_i)+Math.abs(this.loc_j-pac_j)
                 if (man_dis<best_move.distance)
                     best_move = {"i": this.loc_i-1, "j" : this.loc_j, "distance": man_dis};
             }
-            if (board[this.loc_i][this.loc_j+1] != 4 && !(board[this.loc_i+1][this.loc_j] instanceof Ghost)){
+            if (board[this.loc_i][this.loc_j+1] != 4 && !(board[this.loc_i][this.loc_j+1] instanceof Ghost)){
                 man_dis = Math.abs(this.loc_i-pac_i)+Math.abs(this.loc_j+1-pac_j);
                 if (man_dis<best_move.distance)
                     best_move = {"i": this.loc_i, "j" : this.loc_j+1, "distance": man_dis};
             }
-            if (board[this.loc_i][this.loc_j-1] != 4 && !(board[this.loc_i+1][this.loc_j] instanceof Ghost)){
+            if (board[this.loc_i][this.loc_j-1] != 4 && !(board[this.loc_i][this.loc_j-1] instanceof Ghost)){
                 man_dis = Math.abs(this.loc_i+1-pac_i)+Math.abs(this.loc_j-1-pac_j);
                 if (man_dis<best_move.distance)
                     best_move = {"i": this.loc_i, "j" : this.loc_j-1, "distance": man_dis};
