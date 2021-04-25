@@ -63,7 +63,7 @@ function reciveSettings(up, down, left, right, food_num, big_food_color, mid_foo
 	if (monster_num != "")
 		num_ghost = monster_num;
 	if (game_time != "")
-		max_time = game_time;
+		max_time = parseInt(game_time);
 
 }
 

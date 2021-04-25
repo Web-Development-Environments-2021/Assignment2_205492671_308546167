@@ -28,7 +28,9 @@ class MovingScore{
         this.loc_j = random_move.j;
         if (board[this.loc_i][this.loc_j] instanceof Food)
             this.food =  board[this.loc_i][this.loc_j];
-
+        if(board[this.loc_i][this.loc_j] instanceof Packman){
+            this.interactWithPacman(board[this.loc_i][this.loc_j]);
+        }
         board[this.loc_i][this.loc_j] = this;
     }
     
