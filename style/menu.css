@@ -8,6 +8,7 @@ ul {
   
   li {
     float: left;
+    font-weight:bold;
   }
   
   li a {
@@ -37,14 +38,7 @@ ul {
     background-color: #111;
   }
 
- footer{
-   position: fixed;
-   left: 0px;
-   bottom: 0px;
-   width: 100%;
-   text-align: center;
-   color:#f4b41a;
- }
+
 
  #titleGame {
    color:#f4b41a;

@@ -64,7 +64,23 @@ body {
     box-sizing: border-box;
     font-size: 20px;
     font-weight: bold;
-    text-align: left;
+    text-align: center;
     line-height: 100px;
     flex-shrink: 0;
+  }
+
+  #movingPacmanGif{
+    position: fixed;
+    left:39%;
+    bottom: -11.5px;
+  }
+
+  footer{
+    position: fixed;
+    left: 2%;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    color:#f4b41a;
+    font-size: .90em;
   }

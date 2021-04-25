@@ -13,7 +13,7 @@ var food_colors = ["#1ACFCE", "#F1C216", "#46D852"];
 var controlles = {"up": 38,"down": 40,"left": 37,"right": 39};
 var start_time;
 var time_elapsed;
-var max_time = 100;
+var max_time = 60;
 var current_max_time;
 var suspension_start_time;
 var intervalPackman;

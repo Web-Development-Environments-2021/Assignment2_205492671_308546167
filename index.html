@@ -43,7 +43,6 @@
 				<li id="about_menu"><a>About</a></li>
 				<li id="logOut_menu"><a>Log Out</a></li>
 				<img id="logo" src="resources/pictures/pacLogo.png">
-				<iframe src="https://giphy.com/embed/4hCJsNJ7zRcic" width="60" height="42" frameBorder="0"></iframe>
 			</ul>
 		</div>
 		<br>
@@ -219,10 +218,14 @@
 					<tr id="lives">
 						<td><label for="lbLlives">Lives:</label></td>
 						<td><input id="lblLives" type="text" size="4"/></td>
-					  </tr>
+					</tr>
+					<tr>
+						<td><button id="newGame"> New Game </button></td>
+						<td><button id="pause_play_Btn"> Pause </button></td>
+					</tr>
 				</table>
-				<button id="newGame"> New Game </button><br>
-				<button id="pause_play_Btn"> Pause </button>
+				
+				
 
 				<section id="endGame">
 					<table id="gameOverTable" cellpadding="0" cellspacing="0">
@@ -255,7 +258,8 @@
 			</div>
 		</div>
 		<footer>
-			<h6>2021 ©   Liad Oz & Naor Suban the KILLERS </h6>
+			<span id="nameSignatures">2021 ©   Liad Oz & Naor Suban the KILLERS </span>
+			<iframe id="movingPacmanGif" src="https://giphy.com/embed/4hCJsNJ7zRcic" width="60" height="42" frameBorder="0"></iframe>
 		</footer>
 	</body>
 </html>
