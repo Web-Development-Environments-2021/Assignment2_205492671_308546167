@@ -10,6 +10,7 @@
 		<script src ="./js/jquery.validate.js"></script>
 		<script src= "./js/registerValidation.js"></script>
 		<script src="./js/setting.js"></script>
+		<script src= "./js/settingValidation.js"></script>
 		<script type="text/javascript" src="./js/app.js"></script>
 		<script type="text/javascript" src="./js/gameBoard.js"></script>
 		<script type="text/javascript" src="./js/packMan.js"></script>
@@ -136,43 +137,43 @@
 				<h2>Setting</h2>
 				<form id="settingForm" method="post">
 				  <div class="user-setting-box">
-					<input type="text" id= "upArrow" name="upArrow" required="">
+					<input type="text" id= "upArrow" name="upArrow">
 					<label>Up Arrow</label>
 				  </div>
 				  <div class="user-setting-box">
-					<input type="text" id="downArrow" name="downArrow" required="">
+					<input type="text" id="downArrow" name="downArrow">
 					<label>Down Arrow</label>
 				  </div>
 				  <div class="user-setting-box">
-					<input type="text" id="leftArrow" name="leftArrow" required="">
+					<input type="text" id="leftArrow" name="leftArrow">
 					<label>Left Arrow</label>
 				  </div>
 				  <div class="user-setting-box">
-					<input type="text" id="rightArrow" name="rightArrow" required="">
+					<input type="text" id="rightArrow" name="rightArrow">
 					<label>Right Arrow</label>
 				  </div>
 				  <div class="user-setting-box">
-					<input type="text" id="nApples" name="nApples" required="">
+					<input type="text" id="nApples" name="nApples">
 					<label>Number of apples</label>
 				  </div>
 				  <div class="user-setting-box">
-					<input type="color" id="bigAppleColor" name="bigAppleColor" required="">
+					<input type="color" id="bigAppleColor" name="bigAppleColor">
 					<label>Big Apple color</label>
 				  </div>
 				  <div class="user-setting-box">
-					<input type="color" id="medAppleColor" name="medAppleColor" required="">
+					<input type="color" id="medAppleColor" name="medAppleColor">
 					<label>Medium Apple color</label>
 				  </div>
 				  <div class="user-setting-box">
-					<input type="color" id="smallAppleColor" name="smallAppleColor" required="">
+					<input type="color" id="smallAppleColor" name="smallAppleColor">
 					<label>Small Apple color</label>
 				  </div>
 				  <div class="user-setting-box">
-					<input type="text" id="gameTime" name="gameTime" required="">
+					<input type="text" id="gameTime" name="gameTime">
 					<label>Game Time</label>
 				  </div>
 				  <div class="user-setting-box">
-					<input type="text" id="nMonsters" name="nMonsters" required="">
+					<input type="text" id="nMonsters" name="nMonsters">
 					<label>Num of Monsters</label>
 					<br>
 					<br>
@@ -192,7 +193,7 @@
 						<span></span>  
 						<span></span>
 						<span></span>
-						Play
+						<input id="submitSetting" type="submit"  value="Play"></input>
 					</a>
 				</div>
 

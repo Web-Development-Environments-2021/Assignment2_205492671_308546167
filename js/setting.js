@@ -1,7 +1,7 @@
 var keyCode_set;
 
 $(document).ready(function(){
-    $("#play_btn_area").click(settingSubmit);
+    // $("#play_btn_area").click(settingSubmit);
     $("#random_btn_area").click(randomSetting);
     
     $( "#upArrow").keydown(function(event) {
