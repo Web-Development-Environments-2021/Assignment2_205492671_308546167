@@ -2,8 +2,24 @@ var keyCode_set;
 
 $(document).ready(function(){
     // $("#play_btn_area").click(settingSubmit);
+    $("#upArrow").click(function(){
+        $("#upArrow").val("");
+    });
+    $("#downArrow").click(function(){
+        $("#downArrow").val("");
+    });
+    $("#leftArrow").click(function(){
+        $("#leftArrow").val("");
+    });
+    $("#rightArrow").click(function(){
+        $("#rightArrow").val("");
+    });
+
+
+
+
     $("#random_btn_area").click(randomSetting); 
-    $( "#upArrow").keydown(function(event) {
+    $("#upArrow").keydown(function(event) {
         keydownpressed(event,"#upArrow");
         }  
     );
@@ -53,7 +69,6 @@ function keydownpressed(event, arrowType){
         $(arrowType).val(event.key);
     }
     keyCode_set[arrowType] = event.keyCode;  
-    keyName_set[arrowType] = event.key;
 }
 
 function randomSetting() {
@@ -72,5 +87,4 @@ function randomSetting() {
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
 }
-
 
