@@ -18,6 +18,7 @@ $(document).ready(function(){
 
 
 
+
     $("#random_btn_area").click(randomSetting); 
     $("#upArrow").keydown(function(event) {
         keydownpressed(event,"#upArrow");
@@ -55,6 +56,7 @@ function settingSubmit(){
 
 function showSettingScreen(){
     $("#settingForm")[0].reset();
+    setDefaultValues();
 	$("#settingScreen").show();
     $("#login").hide();
     $("#welcome").hide();
@@ -65,9 +67,8 @@ function showSettingScreen(){
 
 
 function keydownpressed(event, arrowType){
-    if((event.keyCode < 48 || event.keyCode >105) && event.keyCode != 8){
-        $(arrowType).val(event.key);
-    }
+  
+    $(arrowType).val(event.key);
     keyCode_set[arrowType] = event.keyCode;  
 }
 
@@ -88,3 +89,15 @@ function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
 }
 
+function setDefaultValues(){
+    $("#upArrow").val("ArrowUp");
+    $("#downArrow").val("ArrowDown");
+    $("#leftArrow").val("ArrowLeft");
+    $("#rightArrow").val("ArrowRight");
+    $("#nApples").val(60);
+    $("#bigAppleColor").val("#1ACFCE");
+    $("#midAppleColor").val("#F1C216");
+    $("#smallAppleColor").val("#46D852");
+    $("#gameTime").val(60);
+    $("#nMonsters").val(4);
+}

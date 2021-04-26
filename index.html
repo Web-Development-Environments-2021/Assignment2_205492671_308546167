@@ -122,11 +122,18 @@
 				   </tr>
 				   <tr>
 					  <td>
-						<span>Naor Suban - 205492671</span><br>
-						<span>Liad Oz - 308546167</span><br>
-						<span>The JQuery plug-ins that we used are:</span><br>
-						<span>Validate</span>
-					  </td>
+						  <div>
+							Naor Suban - 205492671<br>
+							Liad Oz - 308546167<br><br>
+							The JQuery plug-ins used: Validate<br>
+							Templates used: Designed forms and buttons<br>
+							Challenges that we faced:<br>
+							- Using JQuery plug-ins as we never used them before such as the validate plug-in <br>
+							- Trying to create a modular code without dependencies <br>
+							- Maintaining correct interaction with collisions of different enttites on the board<br>
+							<br>
+							<br>
+						  </div>
 				   </tr>
 			 
 				</table>
@@ -136,19 +143,19 @@
 				<h2>Setting</h2>
 				<form id="settingForm" method="post">
 				  <div class="user-setting-box">
-					<input type="text" id= "upArrow" name="upArrow" required>
+					<input type="button" id= "upArrow" name="upArrow" required>
 					<label>Up Arrow</label>
 				  </div>
 				  <div class="user-setting-box">
-					<input type="text" id="downArrow" name="downArrow" required>
+					<input type="button" id="downArrow" name="downArrow" required>
 					<label>Down Arrow</label>
 				  </div>
 				  <div class="user-setting-box">
-					<input type="text" id="leftArrow" name="leftArrow" required>
+					<input type="button" id="leftArrow" name="leftArrow" required>
 					<label>Left Arrow</label>
 				  </div>
 				  <div class="user-setting-box">
-					<input type="text" id="rightArrow" name="rightArrow" required>
+					<input type="button" id="rightArrow" name="rightArrow" required>
 					<label>Right Arrow</label>
 				  </div>
 				  <div class="user-setting-box">
@@ -233,44 +240,44 @@
 					  <th colspan="2">Setting</th>
 					</tr>
 					<tr>
-					  <td><label for="upArrowSetting">Arrow Up:</label></td>
-					  <td><input type="text" id= "upArrowSetting" name="upArrowSetting" size="6"></td>
+					  <td><label for="upArrowSetting">Up:</label></td>
+					  <td><label id= "upArrowSetting" name="upArrowSetting"></td>
 					</tr>
 					<tr>
-					  <td><label for="downArrowSetting">Arrow Down:</label></td>
-					  <td><input type="text" id= "downArrowSetting" name="downArrowSetting" size="6"></td>
+					  <td><label for="downArrowSetting">Down:</label></td>
+					  <td><label id= "downArrowSetting" name="downArrowSetting"></td>
 					</tr>
 					<tr>
-						<td><label for="leftArrowSetting">Arrow Left:</label></td>
-						<td><input type="text" id= "leftArrowSetting" name="leftArrowSetting" size="6"></td>
+						<td><label for="leftArrowSetting">Left:</label></td>
+						<td><label id= "leftArrowSetting" name="leftArrowSetting"></td>
 					</tr>
 					<tr>
-						<td><label for="rightArrowSetting">Arrow Right:</label></td>
-						<td><input type="text" id= "rightArrowSetting" name="rightArrowSetting" size="6"></td>
+						<td><label for="rightArrowSetting">Right:</label></td>
+						<td><label id= "rightArrowSetting" name="rightArrowSetting"></td>
 					</tr>
 					<tr>
-						<td><label for="nApplesSetting">n Apples:</label></td>
-						<td><input type="text" id= "nApplesSetting" name="nApplesSetting" size="2"></td>
+						<td><label for="nApplesSetting">Num of Apples:</label></td>
+						<td><label id= "nApplesSetting" name="nApplesSetting"></td>
 					</tr>
 					<tr>
 						<td><label for="bigAppleColorSetting">Big Apple Color:</label></td>
-						<td><input type="color" id= "bigAppleColorSetting" name="bigAppleColorSetting"></td>
+						<td><input type="color" id= "bigAppleColorSetting" name="bigAppleColorSetting" disabled></td>
 					</tr>
 					<tr>
 						<td><label for="midAppleColorSetting">Mid Apple Color:</label></td>
-						<td><input type="color" id= "midAppleColorSetting" name="midAppleColorSetting"></td>
+						<td><input type="color" id= "midAppleColorSetting" name="midAppleColorSetting" disabled></td>
 					</tr>
 					<tr>
 						<td><label for="smallAppleColorSetting">Small Apple Color:</label></td>
-						<td><input type="color" id= "smallAppleColorSetting" name="smallAppleColorSetting"></td>
+						<td><input type="color" id= "smallAppleColorSetting" name="smallAppleColorSetting" disabled></td>
 					</tr>
 					<tr>
 						<td><label for="gameTimeSetting">Game Time:</label></td>
-						<td><input type="text" id= "gameTimeSetting" name="gameTimeSetting" size="2"></td>
+						<td><label id= "gameTimeSetting" name="gameTimeSetting"></td>
 					</tr>
 					<tr>
 						<td><label for="nMonstersSetting">Num of Ghosts:</label></td>
-						<td><input type="text" id= "nMonstersSetting" name="nMonstersSetting" size="2"></td>
+						<td><label id= "nMonstersSetting" name="nMonstersSetting"></td>
 					</tr>
 				</table>
 				

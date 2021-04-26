@@ -18,7 +18,9 @@ function showWelcomeScreen(){
     $("#onlineUserText").hide();
     onlineUser = null;
     $("#onlineUserText").text("Online User: ");
-    audio.pause();
+    if(pause_game == false){
+        pauseGame();
+    }
    }
 
 

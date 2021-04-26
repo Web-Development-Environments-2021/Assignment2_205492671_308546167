@@ -76,9 +76,11 @@ function reciveSettings(up, down, left, right, food_num, big_food_color, mid_foo
 function Start() {
 	audio.load();
 	$("#mute_Btn").html("Mute");
-	nute = false;
+	mute=false;
 	audio.play();
 	end_game = false;
+	pause_game = false;
+	$("#pause_play_Btn").html("Pause");
 	current_max_time = max_time;
 	start_time = new Date();
 	foods = [];
@@ -111,16 +113,16 @@ function Start() {
 	intervalPackman = setInterval(UpdatePositionPackman, refrashRatePackman);
 	intervalGhosts = setInterval(UpdatePositionGhosts, refrashRateGhosts);
 
-	$("#upArrowSetting").val($("#upArrow").val());
-	$("#downArrowSetting").val($("#downArrow").val());
-	$("#leftArrowSetting").val($("#leftArrow").val());
-	$("#rightArrowSetting").val($("#rightArrow").val());
-	$("#nApplesSetting").val(food_remain);
+	$("#upArrowSetting").html($("#upArrow").val());
+	$("#downArrowSetting").html($("#downArrow").val());
+	$("#leftArrowSetting").html($("#leftArrow").val());
+	$("#rightArrowSetting").html($("#rightArrow").val());
+	$("#nApplesSetting").html(food_remain);
 	$("#bigAppleColorSetting").val(food_colors[2]);
 	$("#midAppleColorSetting").val(food_colors[1]);
 	$("#smallAppleColorSetting").val(food_colors[0]);
-	$("#gameTimeSetting").val(max_time);
-	$("#nMonstersSetting").val(num_ghost);
+	$("#gameTimeSetting").html(max_time);
+	$("#nMonstersSetting").html(num_ghost);
 }
 
 function findRandomEmptyCell(board) {
