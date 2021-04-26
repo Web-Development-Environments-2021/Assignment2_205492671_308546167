@@ -2,8 +2,7 @@ var keyCode_set;
 
 $(document).ready(function(){
     // $("#play_btn_area").click(settingSubmit);
-    $("#random_btn_area").click(randomSetting);
-    
+    $("#random_btn_area").click(randomSetting); 
     $( "#upArrow").keydown(function(event) {
         keydownpressed(event,"#upArrow");
         }  
@@ -34,6 +33,7 @@ function settingSubmit(){
         values["nApples"], values["smallAppleColor"], values["medAppleColor"],
         values["bigAppleColor"], values["nMonsters"], values["gameTime"]
         );
+
     showGameScreen();
 }
 
@@ -52,7 +52,8 @@ function keydownpressed(event, arrowType){
     if((event.keyCode < 48 || event.keyCode >105) && event.keyCode != 8){
         $(arrowType).val(event.key);
     }
-    keyCode_set[arrowType] = event.keyCode  
+    keyCode_set[arrowType] = event.keyCode;  
+    keyName_set[arrowType] = event.key;
 }
 
 function randomSetting() {

@@ -11,26 +11,36 @@
 
 
 
-#gameInfoTable {
+#gameInfoTable, #SettingScreenTable {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     background-color: #f4b41a;
+
+  }
+
+  #gameInfoTable{
     position: relative;
     left: 1%;
   }
+  #SettingScreenTable{
+    position: fixed;
+    z-index: 102;
+    left: 80%;
+    top: 15%;
+  }
   
-  #gameInfoTable td, #gameInfoTable th {
+  #gameInfoTable td, #gameInfoTable th, #SettingScreenTable td, #SettingScreenTable th {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: center;
     font-weight: bold;
   }
   
-  #gameInfoTable tr:nth-child{background-color: white;}
+  #gameInfoTable tr, #SettingScreenTable tr:nth-child{background-color: white;}
   
   #gameInfoTable tr:hover {background-color: goldenrod;}
   
-  #gameInfoTable th {
+  #gameInfoTable th, #SettingScreenTable th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;

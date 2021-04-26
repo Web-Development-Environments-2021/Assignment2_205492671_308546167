@@ -136,43 +136,43 @@
 				<h2>Setting</h2>
 				<form id="settingForm" method="post">
 				  <div class="user-setting-box">
-					<input type="text" id= "upArrow" name="upArrow">
+					<input type="text" id= "upArrow" name="upArrow" required>
 					<label>Up Arrow</label>
 				  </div>
 				  <div class="user-setting-box">
-					<input type="text" id="downArrow" name="downArrow">
+					<input type="text" id="downArrow" name="downArrow" required>
 					<label>Down Arrow</label>
 				  </div>
 				  <div class="user-setting-box">
-					<input type="text" id="leftArrow" name="leftArrow">
+					<input type="text" id="leftArrow" name="leftArrow" required>
 					<label>Left Arrow</label>
 				  </div>
 				  <div class="user-setting-box">
-					<input type="text" id="rightArrow" name="rightArrow">
+					<input type="text" id="rightArrow" name="rightArrow" required>
 					<label>Right Arrow</label>
 				  </div>
 				  <div class="user-setting-box">
-					<input type="text" id="nApples" name="nApples">
+					<input type="text" id="nApples" name="nApples" required>
 					<label>Number of apples</label>
 				  </div>
 				  <div class="user-setting-box">
-					<input type="color" id="bigAppleColor" name="bigAppleColor">
+					<input type="color" id="bigAppleColor" name="bigAppleColor" required>
 					<label>Big Apple color</label>
 				  </div>
 				  <div class="user-setting-box">
-					<input type="color" id="medAppleColor" name="medAppleColor">
+					<input type="color" id="medAppleColor" name="medAppleColor" required>
 					<label>Medium Apple color</label>
 				  </div>
 				  <div class="user-setting-box">
-					<input type="color" id="smallAppleColor" name="smallAppleColor">
+					<input type="color" id="smallAppleColor" name="smallAppleColor" required>
 					<label>Small Apple color</label>
 				  </div>
 				  <div class="user-setting-box">
-					<input type="text" id="gameTime" name="gameTime">
+					<input type="text" id="gameTime" name="gameTime" required>
 					<label>Game Time</label>
 				  </div>
 				  <div class="user-setting-box">
-					<input type="text" id="nMonsters" name="nMonsters">
+					<input type="text" id="nMonsters" name="nMonsters" required>
 					<label>Num of Monsters</label>
 					<br>
 					<br>
@@ -225,6 +225,52 @@
 					</tr>
 					<tr>
 						<td colspan="2"><button id="newGame"> New Game </button></td>
+					</tr>
+				</table>
+
+				<table id="SettingScreenTable">
+					<tr>
+					  <th colspan="2">Setting</th>
+					</tr>
+					<tr>
+					  <td><label for="upArrowSetting">Arrow Up:</label></td>
+					  <td><input type="text" id= "upArrowSetting" name="upArrowSetting" size="6"></td>
+					</tr>
+					<tr>
+					  <td><label for="downArrowSetting">Arrow Down:</label></td>
+					  <td><input type="text" id= "downArrowSetting" name="downArrowSetting" size="6"></td>
+					</tr>
+					<tr>
+						<td><label for="leftArrowSetting">Arrow Left:</label></td>
+						<td><input type="text" id= "leftArrowSetting" name="leftArrowSetting" size="6"></td>
+					</tr>
+					<tr>
+						<td><label for="rightArrowSetting">Arrow Right:</label></td>
+						<td><input type="text" id= "rightArrowSetting" name="rightArrowSetting" size="6"></td>
+					</tr>
+					<tr>
+						<td><label for="nApplesSetting">n Apples:</label></td>
+						<td><input type="text" id= "nApplesSetting" name="nApplesSetting" size="2"></td>
+					</tr>
+					<tr>
+						<td><label for="bigAppleColorSetting">Big Apple Color:</label></td>
+						<td><input type="color" id= "bigAppleColorSetting" name="bigAppleColorSetting"></td>
+					</tr>
+					<tr>
+						<td><label for="medAppleColorSetting">Med Apple Color:</label></td>
+						<td><input type="color" id= "medAppleColorSetting" name="medAppleColorSetting"></td>
+					</tr>
+					<tr>
+						<td><label for="smallAppleColorSetting">Small Apple Color:</label></td>
+						<td><input type="color" id= "smallAppleColorSetting" name="smallAppleColorSetting"></td>
+					</tr>
+					<tr>
+						<td><label for="gameTimeSetting">Game Time:</label></td>
+						<td><input type="text" id= "gameTimeSetting" name="gameTimeSetting" size="2"></td>
+					</tr>
+					<tr>
+						<td><label for="nMonstersSetting">n Apples:</label></td>
+						<td><input type="text" id= "nMonstersSetting" name="nMonstersSetting" size="2"></td>
 					</tr>
 				</table>
 				
