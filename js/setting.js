@@ -46,7 +46,7 @@ function settingSubmit(){
     });
     reciveSettings(
         keyCode_set["#upArrow"], keyCode_set["#downArrow"], keyCode_set["#leftArrow"], keyCode_set["#rightArrow"],
-        values["nApples"], values["smallAppleColor"], values["medAppleColor"],
+        values["nApples"], values["smallAppleColor"], values["midAppleColor"],
         values["bigAppleColor"], values["nMonsters"], values["gameTime"]
         );
 
@@ -78,7 +78,7 @@ function randomSetting() {
     $("#rightArrow").val("ArrowRight");
     $("#nApples").val(getRndInteger(50,90));
     $("#bigAppleColor").val("#1ACFCE");
-    $("#medAppleColor").val("#F1C216");
+    $("#midAppleColor").val("#F1C216");
     $("#smallAppleColor").val("#46D852");
     $("#gameTime").val(getRndInteger(60,90));
     $("#nMonsters").val(getRndInteger(1,4));

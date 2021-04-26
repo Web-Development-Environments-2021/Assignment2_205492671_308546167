@@ -53,28 +53,33 @@ body {
     background: url(http://i.giphy.com/kgyLlpe3YCkmI.gif);
     background-size: cover;
     background-position: center;
-    
+    background-clip: text;
     -webkit-background-clip: text;
     color: transparent; 
+ 
     width: 300px;
     height: 100px;
     box-sizing: border-box;
-    font-size: 20px;
+    font-size: 23px;
     font-weight: bold;
     text-align: center;
     line-height: 100px;
     flex-shrink: 0;
+    position: fixed;
+    left: 0.5%;
+    top:5%;
   }
+
 
   #movingPacmanGif{
     position: fixed;
-    left:39%;
+    left:1%;
     bottom: -11.5px;
   }
 
   footer{
     position: fixed;
-    left: 2%;
+    left: 1%;
     bottom: 0px;
     width: 100%;
     text-align: center;

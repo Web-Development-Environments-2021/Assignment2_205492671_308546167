@@ -117,7 +117,7 @@ function Start() {
 	$("#rightArrowSetting").val($("#rightArrow").val());
 	$("#nApplesSetting").val(food_remain);
 	$("#bigAppleColorSetting").val(food_colors[2]);
-	$("#medAppleColorSetting").val(food_colors[1]);
+	$("#midAppleColorSetting").val(food_colors[1]);
 	$("#smallAppleColorSetting").val(food_colors[0]);
 	$("#gameTimeSetting").val(max_time);
 	$("#nMonstersSetting").val(num_ghost);

@@ -179,10 +179,14 @@
 #submitSetting{
 
   background-color: transparent;
-  font-size: 20px;
-  color: #fff;
+  font-size: 16px;
+  color: #f4b41a;
+  display: inline-block;
+  text-transform: uppercase;
   font-weight: bold;
   border-color: transparent;
+  letter-spacing: 4px;
+  
  
 }
 

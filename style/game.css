@@ -1,5 +1,6 @@
 #canvas{
-    left: 500px;
+    /* left: 420px; */
+    left: 30%;
     top: 15%;
     bottom:30%;
     width: 80%;
@@ -19,14 +20,15 @@
   }
 
   #gameInfoTable{
-    position: relative;
-    left: 1%;
+    position: fixed;
+    left: 3%;
+    top: 32%;
   }
   #SettingScreenTable{
     position: fixed;
     z-index: 102;
-    left: 80%;
-    top: 15%;
+    left: 77%;
+    top: 25%;
   }
   
   #gameInfoTable td, #gameInfoTable th, #SettingScreenTable td, #SettingScreenTable th {
