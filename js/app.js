@@ -74,6 +74,8 @@ function reciveSettings(up, down, left, right, food_num, big_food_color, mid_foo
 
 function Start() {
 	audio.load();
+	$("#mute_Btn").html("Mute");
+	nute = false;
 	audio.play();
 	end_game = false;
 	current_max_time = max_time;
