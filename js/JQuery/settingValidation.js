@@ -13,7 +13,7 @@ $().ready(function() {
         },
         messages: {
             nApples: 
-            "Min=60 Max=120",            
+            "Min=50 Max=90",            
             gameTime: 
                 "Min=60",
             nMonsters:

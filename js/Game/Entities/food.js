@@ -7,8 +7,8 @@ class Food{
         this.loc_j = startj;
         this.point_color = color;
         board[starti][startj] = this;
-        this.score = 5;
-        this.radios = 5;
+        this.score;
+        this.radius;
     }
 
     get_score(){
@@ -20,7 +20,7 @@ class Food{
         center.x = this.loc_i * scale + scale/2;
         center.y = this.loc_j * scale + scale/2;
         context.beginPath();
-        context.arc(center.x, center.y, scale/5, 0, 2 * Math.PI); // circle.. foddies
+        context.arc(center.x, center.y, this.radius, 0, 2 * Math.PI); // circle.. foddies
         context.fillStyle = this.point_color; //color
         context.fill();
     }

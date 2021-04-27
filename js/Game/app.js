@@ -200,7 +200,9 @@ function UpdatePositionPackman() {
 
 function UpdatePositionGhosts() {
 	ghostMove();
-	moving_score.moveChar(board);
+	if(moving_score!=null){
+		moving_score.moveChar(board);
+	}
 	Draw();
 }
 
