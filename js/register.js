@@ -1,9 +1,17 @@
+
+
 $(document).ready(function(){
     $("#register").hide();
     $("#register_button").click(showRegisterScreen);
     $("#register_menu").click(showRegisterScreen);
 
+    $(document).on('click', '.toggle-password', function() {
 
+        $(this).toggleClass("fa-eye fa-eye-slash");
+        
+        var input = $("#pass_reg");
+        input.attr('type') === 'password' ? input.attr('type','text') : input.attr('type','password')
+    });
 });
 
 
@@ -26,4 +34,3 @@ function registerSubmit(){
     addToDB(values["Username"],values["Password"],values["Fullname"],values["Email"],values["DateOfBirth"]);
     showLoginScreen();
 }
-

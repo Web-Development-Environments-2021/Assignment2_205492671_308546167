@@ -29,6 +29,7 @@
 		<link rel="stylesheet" type="text/css" href="./style/setting.css" />
 		<link rel="stylesheet" type="text/css" href="./style/welcome.css" />
 		<link rel="stylesheet" type="text/css" href="./style/game.css" />
+
 		<title>Liad & Naor PAC-MAN</title>
 	</head>
 
@@ -63,9 +64,9 @@
 					<label>Username</label>
 				  </div>
 				  <div class="register-user-box">
-					<input type="password" name="Password">
+					<input type="password" id="pass_reg" name="Password">
 					<label>Password</label>
-					
+					<span toggle="#password-field" class="regEyeloc fa fa-fw fa-eye field_icon toggle-password"></span>
 				  </div>
 				  <div class="register-user-box">
 					<input type="text" name="Fullname">
@@ -144,19 +145,19 @@
 				<form id="settingForm" method="post">
 				  <div class="user-setting-box">
 					<input type="button" id= "upArrow" name="upArrow" required>
-					<label>Up Arrow</label>
+					<label>Up</label>
 				  </div>
 				  <div class="user-setting-box">
 					<input type="button" id="downArrow" name="downArrow" required>
-					<label>Down Arrow</label>
+					<label>Down</label>
 				  </div>
 				  <div class="user-setting-box">
 					<input type="button" id="leftArrow" name="leftArrow" required>
-					<label>Left Arrow</label>
+					<label>Left</label>
 				  </div>
 				  <div class="user-setting-box">
 					<input type="button" id="rightArrow" name="rightArrow" required>
-					<label>Right Arrow</label>
+					<label>Right</label>
 				  </div>
 				  <div class="user-setting-box">
 					<input type="text" id="nApples" name="nApples" required>
